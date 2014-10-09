@@ -1,10 +1,19 @@
-Nom / ID : Créer un livre.
-Descr : Permet à l'écrivain de créer un livre.
-Hypothese : Il a une histoire
-Acteurs : Écrivain
-Préconditions : Espace sur le disque, le logiciel est ouvert
+TITRE
+	Créer un livre.
 
-Scénario nominal :
+DESCRIPTION
+	Permet à l'écrivain de créer un livre.
+
+HYPOTHÈSES
+	Il a une histoire
+
+ACTEURS
+	Écrivain
+
+PRÉ CONDITIONS
+	Espace sur le disque, le logiciel est ouvert
+
+SCÉNARIO NOMINAL
 	1- L'utilisateur sélectionne créer un livre
 	2- Le système affiche une interface pour saisir le nom du livre et son emplacement dans l'arborescence des fichiers.
 	3- L'utilisateur saisit les informations et valide.
