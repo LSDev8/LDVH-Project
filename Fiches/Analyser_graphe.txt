@@ -1,3 +1,6 @@
+À faire (alexis) : spécifier inatteignable ; interblocage d'objets + définition pour le développeur.
+
+
 TITRE
   Analyser le graphe complet des enchaînements possibles.
 
