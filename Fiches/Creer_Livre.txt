@@ -1,0 +1,19 @@
+Nom / ID : Créer un livre.
+Descr : Permet à l'écrivain de créer un livre.
+Hypothese : Il a une histoire
+Acteurs : Écrivain
+Préconditions : Espace sur le disque, le logiciel est ouvert
+
+Scénario nominal :
+	1- L'utilisateur sélectionne créer un livre
+	2- Le système affiche une interface pour saisir le nom du livre et son emplacement dans l'arborescence des fichiers.
+	3- L'utilisateur saisit les informations et valide.
+	4- Le système contrôle la présence de caractères interdits dans le nom du livre et que le chemin spécifié dans le système de fichiers existe et que l'utilisateur a les permission en écriture.
+	5- Le système crée un répertoire au nom du livre qui contiendra les fichiers nécessaires à son élaboration.
+	6- Le système affiche une interface de saisie comprenant la gestion du texte à afficher, l'inventaire de la page, les passages vers d'autres sections et un inventaire et des passages conditionnels.
+
+Texte à afficher
+Inventaire de la page
+Passages autres sections
+Inventaire conditionnel
+Passages conditionnels
