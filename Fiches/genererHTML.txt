@@ -24,6 +24,10 @@ SCENARIO NOMINAL
 	 2. Le sytème analyse chaque section du livre
 	 3. Le système ouvre le navigateur choisi dans les options du logiciel et affiche le code source HTML de chaque section dans un onglet différent
 	 4. Le système vérifie que le navigateur n'a pas renvoyé de message d'erreur suite à l'ouverture de la page HTML
+	
+	[3- 4] Le système se sert d'un parser XML pour vérifier que le code
+html généré est correct.
+	
 	 5. Le système affiche une nouvelle fenêtre : Génération terminée avec succès
 
 POST-CONDITION
