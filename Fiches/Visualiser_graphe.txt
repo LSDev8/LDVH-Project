@@ -1,0 +1,55 @@
+TITRE
+  Visualiser le graphe complet des enchaînements possibles.
+
+
+DESCRIPTION
+  Permet de visualiser sous forme de graphe les enchaînements possibles entre
+  sections, de la section 1 (début du jeu) aux différentes possibilités de
+  terminaison du jeu (sections où le héros décède ou sections où il gagne).
+
+
+HYPOTHÈSES
+  L'acteur doit avoir un serveur graphique installé sur son ordinateur.
+
+
+ACTEURS
+  L'auteur du livre.
+
+
+SCÉNARIO NOMINAL
+  1. Dans l'interface graphique de création du jeu, l'utilisateur clique sur
+     "Visualiser le graphe complet des enchaînements possibles".
+  2. Le système affiche le graphe dans l'interface graphique en prenant soin de
+     le mettre à l'échelle et d'offrir la possibilité de zoomer si celui-ci
+     comporte beaucoup de sections. La section 1 (point de départ) est colorée
+     en bleu, les sections où le héros décède en rouge et celles où il gagne en
+     vert. Chaque section est représentée par un carré contenant les informations
+     suivantes :
+     - Nom de la section.
+     - Objet(s) contenu(s) dans la section.
+     Un trait entre deux sections signifie qu'on peut passer de l'une à l'autre.
+     Les traits peuvent comporter des étiquettes contenant les prérequis pour
+     pouvoir utiliser le chemin (présence d'un objet spécifique dans le sac).
+  3. Le système rend la main à l'auteur.
+
+
+POST-CONDITION
+  L'auteur peut visualiser le graphe lui présentant de manière clair les
+  sections de son livre.
+
+
+SCÉNARIOS ALTERNATIFS
+  1.1 Au SN2 l'utilisateur clique sur une section.
+  1.2 Le système ouvre la fenêtre lui permettant de visualiser et d'éditer la
+      section.
+  1.3 L'utilisateur quitte ladite section et retourne à la visualisation du
+      graphe.
+  2.1 Au SN2 l'utilisateur clique sur un trait reliant deux sections.
+  2.2 Le système ouvre la fenêtre lui permettant de visualiser et d'éditer
+      l'enchaînement entre deux sections.
+  2.3 L'utilisateur quitte ledit enchaînement et retourne à la visualisation du
+      graphe.
+
+
+SCÉNARIOS D'EXCEPTIONS
+  (vide)
