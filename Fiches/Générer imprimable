@@ -1,0 +1,50 @@
+TITRE
+  Générer un livre imprimable.
+
+
+DESCRIPTION
+  Permet la génération d'un livre jouable après impression.
+
+
+HYPOTHÈSES
+  L'ordinateur doit être allumé.
+
+
+ACTEURS
+  L'auteur du livre concerné.
+
+
+SCÉNARIO NOMINAL
+  1. L'utilisateur clique sur le bouton "Générer un livre imprimable".
+  2. Le système ouvre une fenêtre demandant confirmation et demandant à l'auteur
+     le nom du fichier qu'il souhaite générer (au format PDF pour une impression
+     facile).
+  3. L'utilisateur accepte, spécifie le nom  et le système numérote les sections
+     de façon aléatoire (sauf la section de départ, numéro 1).
+  4. Pour chaque page, le système commence par insérer le côté histoire de la
+     page, défini par l'auteur ainsi que le numéro de page.
+  5. Ensuite il génère le texte suivant pour les sections sans conditions :
+     "Se rentre à la section (numéro section)" (la section correspond au numéro
+      de page). Et le texte suivant pour les sections avec conditions :
+     "Si vous possédez (objet) rendez vous section (numéro section)".
+  6. La génération du livre terminée le système affiche un message de
+     confirmation et propose à l'auteur d'ouvrir le répertoire courant où a été
+     sauvegardé le fichier PDF.
+
+
+POST-CONDITION
+  Le fichier PDF généré existe et est imprimable.
+
+
+SCÉNARIOS ALTERNATIFS
+  1.1. Au SN5, la section en cours de génération est une section de défaite.
+  1.2. Le système ajoute en fin de section le message suivant "Dommage vous avez
+       perdu, ce sera pour une autre fois !".
+  2.1. Au SN5, la section en cours de génération est une section de victoire.
+  2.2. Le système ajoute en fin de section le message suivant "Félicitations
+       vous avez gagné !".
+       
+
+
+SCÉNARIOS D'EXCEPTIONS
+  (vide)
