@@ -1,7 +1,5 @@
 --- Je pars du principe dans cette fiche qu'on fonctionne par menus déroulants ---
 
---- Je rappelle qu'une hypothèse ne DOIT PAS être présente dans les scénarios, donc faudra se décider dessus ---
-
 TITRE
 
 	Modifier jeu
@@ -12,28 +10,22 @@ DESCRIPTION
 
 HYPOTHESES
 
-	Il existe déjà un livre enregistré sous la forme .ldvh dans le dossier du systeme
-	Il existe qu'un seul sous répertoire où sont situés les .ldvh (sinon on rentre le parcours des fichiers dans une alternative)
+	L'utilisateur dispose des droits nécessaires sur le disque
 
 ACTEURS
 
-	L'auteur du livre déjà enregistré
-	N'importe quel auteur voulant continuer le livre
+	N'importe quel auteur
 
 SCENARIO NOMINAL
 	 
-
-	 -- Les 4 premiers SN sont bien inutiles et peuvent se retrouver sous la forme d'un seul, suffit de voir si on est des abrutis ou pas --
-
 	 1. L'utilisateur clique sur Fichier
 	 2. Le système déroule le menu Fichier
 	 3. L'utilisateur clique sur Ouvrir
 	 4. Le système ferme le menu Fichier
-	 5. Le système affiche une fenêtre qui contient tous les .ldvh présents dans le dossier du systeme, un bouton valider, un bouton annuler
-	 6. L'utilisateur clique sur le fichier qu'il souhaite continuer et valide
-	 7. Le système ferme la fenêtre d'ouverture de fichier
-	 8. Le système ouvre une fenêtre classique comportant toutes les sections précédemment écrites
-	 9. Le système affiche une nouvelle fenêtre : Chargement terminé
+	 5. Le système affiche une fenêtre d'exploration du systeme de fichier, un bouton valider et un bouton annuler
+	 6. L'utilisateur sélectionne le livre qu'il souhaite modifier et valide
+	 7. Le système ouvre une fenêtre classique comportant toutes les sections précédemment écrites
+	 8. Le système affiche une nouvelle fenêtre : Chargement terminé
 	 
 
 POST-CONDITIONS 
@@ -42,20 +34,24 @@ POST-CONDITIONS
 	
 
 SCENARIO ALTERNATIF
-
-	 1. L'acteur peut supprimer un fichier plutôt que de l'ouvrir avec la touche suppr
-	 -- A voir si ça vaut la peine de mettre ça ici --
-
-	 2. Parcours de répertoires (cf les hypothèses)
-
-	 3. Y'a aucun .ldvh (cf les hypothèses aussi, on est pas obligé de le mettre)
-	
+	 
+	 A1 Suppression d'un livre
+	 -------------------------
+	 1.1 A SN6, l'acteur peut supprimer un fichier plutôt que de l'ouvrir avec la touche suppr.
+	 1.2 Retour à SN5. 
+	 
 
 SCENARIO EXCEPTIONS
 
-	 1. Le fichier .ldvh est corrompu
-
-	 1.1 Au SN8, le système n'arrive pas à charger le fichier
+	 E1  Le fichier .ldvh est corrompu
+	 ---------------------------------
+	 1.1 Au SN7, le système n'arrive pas à charger le fichier
 	 1.2 Le système affiche une nouvelle fenêtre : Erreur de chargement, Fichier corrompu --> Valider
-	 1.3 Retour au SN5
-	  
+	 
+	 E2 Aucun fichier disponible
+ 	 ---------------------------	 
+	 2.1 À SN5 si aucun fichier .ldvh n'est disponible.
+	 
+	 E3 Annulation
+	 -------------	 
+	 3.1 A SN5, l'utilisateur clique sur annuler, fin de l'interaction.
