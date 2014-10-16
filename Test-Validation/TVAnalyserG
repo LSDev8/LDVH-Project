@@ -1,0 +1,25 @@
+TITRE 
+
+        Analyser Graphe TV01
+
+CONTEXTE
+
+	Un enchainement de sections valides
+
+ENTREE
+
+	Tous les enchainements de sections crées par l'auteur présent dans le livre.ldvh
+
+SCENARIO
+	
+	1. L'utilisateur clique sur Analyser Graphe
+	2. Le système affiche une fenêtre informant qu'il regarde l'ensemble des enchainements possibles
+
+RESULTATS ATTENDUS
+
+	Le système affiche une fenêtre de validation du graphe comme quoi toutes les sections sont atteignables
+
+MOYENS DE VERIFICATION
+
+       Visuel
+       Jouer au jeu pour tester toutes les sections
