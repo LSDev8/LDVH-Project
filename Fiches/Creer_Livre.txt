@@ -1,28 +1,58 @@
 TITRE
+
 	Créer un livre.
 
 DESCRIPTION
+
 	Permet à l'écrivain de créer un livre.
 
 HYPOTHÈSES
-	Il a une histoire
+
+	L'auteur à les droits nécessaires sur le système de fichiers.
 
 ACTEURS
+
 	Écrivain
 
 PRÉ CONDITIONS
-	Espace sur le disque, le logiciel est ouvert
+
+	Espace sur le disque, le logiciel est ouvert.
 
 SCÉNARIO NOMINAL
-	1- L'utilisateur sélectionne créer un livre
-	2- Le système affiche une interface pour saisir le nom du livre et son emplacement dans l'arborescence des fichiers.
-	3- L'utilisateur saisit les informations et valide.
-	4- Le système contrôle la présence de caractères interdits dans le nom du livre et que le chemin spécifié dans le système de fichiers existe et que l'utilisateur a les permission en écriture.
-	5- Le système crée un répertoire au nom du livre qui contiendra les fichiers nécessaires à son élaboration.
-	6- Le système affiche une interface de saisie comprenant la gestion du texte à afficher, l'inventaire de la page, les passages vers d'autres sections et un inventaire et des passages conditionnels.
 
-Texte à afficher
-Inventaire de la page
-Passages autres sections
-Inventaire conditionnel
-Passages conditionnels
+	1- L'utilisateur sélectionne Fichier.
+	2- Le système affiche le menu Fichier.
+	3- L'utilisateur sélectionne créer un livre.
+	4- Le système affiche une interface pour saisir le nom du livre et son emplacement dans l'arborescence des fichiers, un bouton valider et un bouton annuler.
+	5- L'utilisateur saisit les informations et valide.
+	6- Le système crée un répertoire au nom du livre qui contiendra les fichiers nécessaires à son élaboration.
+	7- Le système renvoie l'utilisateur vers Continuer jeu SN8.
+
+POST-CONDITIONS
+
+	Un nouveau dossier au nom du livre et les fichiers nécessaires sont bien créés sur le disque, le livre est ouvert et prêt à être modifié.
+
+SCÉNARIOS ALTERNATIFS
+
+	A1 Mauvais nom de livre
+	-----------------------
+	1.1 À SN5 l'utilisateur entre un nom de livre et/ou un emplacement qui contiennent des caractères interdits. 
+	1.2 L'utilisateur est renvoyé à l'étape SN4.
+
+	A2 Mauvais emplacement
+	----------------------
+	2.1 À SN5 l'utilisateur entre un emplacement sur le disque qui n'existe pas.
+	2.2 L'utilisateur est renvoyé à l'étape SN4.
+
+	A3 Le livre existe déjà
+	-----------------------
+	3.1 À SN5 l'utilisateur entre le nom d'un livre qui existe déjà.
+	3.2 Le système affiche un message d'erreur et propose à l'utilisateur d'ouvrir le fichier existant (Continuer jeu SN8), de spécifier un nouveau nom (SN4) ou d'annuler.
+
+SCÉNARIO EXCEPTIONS
+
+	E1 Annulation
+	-------------
+	1.1 En SN5 ou en A3.2 l'utilisateur sélectionne annuler.
+	1.2 Fin de l'interaction.
+
