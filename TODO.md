@@ -1,7 +1,8 @@
 TODO LIST
 =========
 
-Si [x] alors valider par le groupe 
+- [x] valider par le groupe 
+- [ ] pas valider par le groupe 
 
 Diagramme
 ---------
