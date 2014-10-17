@@ -12,17 +12,17 @@ Diagramme
 Fiches
 ------
 
-- [] Analyser_graphe
+- [ ] Analyser_graphe
 - [x] continuerJeu
 - [x] Créer_Livre
-- [] générerHTML
-- [] Générer Imprimable
+- [ ] générerHTML
+- [ ] Générer Imprimable
 - [X] Visualiser_graphe
 
 Test-Validation
 ---------------
 
-- [] Analyser Graphe Exception
-- [] Analyser Graphe Impossible
-- [] Test : Créer une version imprimable du livre
-- [] TVAnalyserG
+- [ ] Analyser Graphe Exception
+- [ ] Analyser Graphe Impossible
+- [ ] Test : Créer une version imprimable du livre
+- [ ] TVAnalyserG
