@@ -27,3 +27,8 @@ Test-Validation
 - [ ] Analyser Graphe Impossible
 - [ ] Test : Créer une version imprimable du livre
 - [ ] TVAnalyserG
+
+Présentation
+------------
+
+- [ ] Powerpoint de présentation
