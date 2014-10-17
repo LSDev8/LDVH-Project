@@ -30,6 +30,7 @@ SCÉNARIO NOMINAL
      La section 1 (point de départ) est colorée en bleu,
      les sections où le héros décède en rouge
      et celles où il gagne en vert.
+     Si une section est inatteignable, elle sera de couleur jaune.
      Chaque section est représentée par un carré contenant les informations
      suivantes :
      - Nom de la section.
