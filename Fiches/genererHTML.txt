@@ -1,4 +1,3 @@
-
 TITRE
 
 	Générer version HTML
@@ -6,6 +5,10 @@ TITRE
 DESCRIPTION
 
 	Permet de générer une page HTML afin qu'un lecteur puisse jouer en ligne sur son navigateur internet
+
+HYPOTHÈSES
+
+	Il y a suffisemment d'espace sur le disque
 
 ACTEURS
 
@@ -20,11 +23,10 @@ SCENARIO NOMINAL
 	 1. L'acteur sélectionne "Générer Version HTML"
 	 2. Le système affiche une interface de saisie du chemin de génération
 	 3. L'utilisateur saisit le chemin de génération du livre
-	 4. Le système vérifie que l'écriture est possible
-	 5. Le système vérifie que le livre n'est pas vide
-	 6. Le système vérifie qu'il n'y a pas de sections inatteignable
-	 7. Le système génère le code du livre
-	 8. Le système affiche une nouvelle fenêtre : Génération terminée avec succès
+	 4. Le système vérifie que le livre n'est pas vide
+	 5. Le système vérifie qu'il n'y a pas de sections inatteignable
+	 6. Le système génère le code du livre
+	 7. Le système affiche une nouvelle fenêtre : Génération terminée avec succès
 
 POST-CONDITION
 
@@ -32,27 +34,21 @@ POST-CONDITION
 
 SCENARIO ALTERNATIF
 
-	 A1 Écriture impossible sur le disque
-	 ------------------------------------
-	 1.1 Au SN4, si l'écriture sur le disque est refusée, le système notifie l'utilisateur
-	 1.2 L'utilisateur confirme la prise en compte du message
-	 1.3 Retour au SN2
-
-	 A2 Sections inatteignables
+	 A1 Sections inatteignables
 	 --------------------------
-	 2.1 Au SN6, si le livre comporte des sections inatteignables, le système propose à l'utilisateur de retirer ces sections
-	 2.2 L'utilisateur clique sur continuer
-	 2.3 Le système retire du graphe les sections inatteignables
-	 2.4 Retour au SN7
+	 1.1 Au SN5, si le livre comporte des sections inatteignables, le système propose à l'utilisateur de retirer ces sections
+	 1.2 L'utilisateur clique sur continuer
+	 1.3 Le système retire du graphe les sections inatteignables
+	 1.4 Retour au SN6
 
 SCENARIO EXCEPTION
 
 	 E1 Le livre est vide
 	 ---------------------
-	 1.1 Au SN5, si le livre est vide, le système notifie l'utilisateur
+	 1.1 Au SN4, si le livre est vide, le système notifie l'utilisateur
 	 1.2 Le système annule la génération
 
 	 E2 L'utilisateur annule la génération
 	 -------------------------------------
-	 1.1 En SN3 ou A2.2, si l'utilisateur clique sur annuler, le système annule la génération
+	 2.1 En SN3 ou A1.2, si l'utilisateur clique sur annuler, le système annule la génération
 	 
