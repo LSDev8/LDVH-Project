@@ -32,9 +32,8 @@ Présentation
 ------------
 
 - [ ] Powerpoint de présentation
-- 
 
 Propositions
 ------------
-Donner des identifiants aux Fiches pour les références croisées (ex : FDCU01)
-Harmoniser l'acteur en "L'auteur" dans les Fiches.
+- [ ] Donner des identifiants aux Fiches pour les références croisées (ex : FDCU01)
+- [ ] Harmoniser l'acteur en "L'auteur" dans les Fiches.
