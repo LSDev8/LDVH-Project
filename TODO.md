@@ -16,7 +16,7 @@ Fiches
 - [ ] Analyser_graphe
 - [x] continuerJeu
 - [x] Créer_Livre
-- [ ] générerHTML
+- [x] générerHTML
 - [ ] Générer Imprimable
 - [X] Visualiser_graphe
 
