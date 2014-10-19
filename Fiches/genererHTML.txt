@@ -1,53 +1,58 @@
---- Bof pas très clair ---
-
 
 TITRE
 
-	Générer une page HTML
+	Générer version HTML
 
 DESCRIPTION
 
-	Permet de générer une page HTML facilement afin qu'un lecteur puisse jouer en ligne sur son navigateur internet
-
-HYPOTHESES
-
-	L'acteur a un navigateur internet installé sur son ordinateur qui lui permet de lire le code source d'une page HTML + ouvrir une page HTML de manière classique.
-	Le système sait identifier un message d'erreur d'un navigateur internet (pour une mauvaise génération du code source)
+	Permet de générer une page HTML afin qu'un lecteur puisse jouer en ligne sur son navigateur internet
 
 ACTEURS
 
 	L'auteur du livre
 
+PRÉ-CONDITIONS
+
+	Un livre est ouvert
+
 SCENARIO NOMINAL
 
-	 1. L'acteur sélectionne Générer Version HTML
-	 2. Le sytème analyse chaque section du livre
-	 3. Le système ouvre le navigateur choisi dans les options du logiciel et affiche le code source HTML de chaque section dans un onglet différent
-	 4. Le système vérifie que le navigateur n'a pas renvoyé de message d'erreur suite à l'ouverture de la page HTML
-	
-	[3- 4] Le système se sert d'un parser XML pour vérifier que le code
-html généré est correct.
-	
-	 5. Le système affiche une nouvelle fenêtre : Génération terminée avec succès
+	 1. L'acteur sélectionne "Générer Version HTML"
+	 2. Le système affiche une interface de saisie du chemin de génération
+	 3. L'utilisateur saisit le chemin de génération du livre
+	 4. Le système vérifie que l'écriture est possible
+	 5. Le système vérifie que le livre n'est pas vide
+	 6. Le système vérifie qu'il n'y a pas de sections inatteignable
+	 7. Le système génère le code du livre
+	 8. Le système affiche une nouvelle fenêtre : Génération terminée avec succès
 
 POST-CONDITION
 
-	L'auteur sait que ses pages HTML sont jouables par un futur lecteur depuis son navigateur web personnel
-
+	Un ensemble de pages HTML est généré à l'emplacement spécifié par l'utilisateur 
 
 SCENARIO ALTERNATIF
 
-	 1. Le texte de l'auteur est vide
+	 A1 Écriture impossible sur le disque
+	 ------------------------------------
+	 1.1 Au SN4, si l'écriture sur le disque est refusée, le système notifie l'utilisateur
+	 1.2 L'utilisateur confirme la prise en compte du message
+	 1.3 Retour au SN2
 
-	 1.1 A la fin du SN2, le système signale que le texte est vide dans une nouvelle fenêtre
-	 1.2 Le système ouvre le navigateur et affiche le code source HTML d'une page vierge
-	 1.3 Retour au SN4
+	 A2 Sections inatteignables
+	 --------------------------
+	 2.1 Au SN6, si le livre comporte des sections inatteignables, le système propose à l'utilisateur de retirer ces sections
+	 2.2 L'utilisateur clique sur continuer
+	 2.3 Le système retire du graphe les sections inatteignables
+	 2.4 Retour au SN7
 
 SCENARIO EXCEPTION
 
-	 1. La génération HTML s'est mal passée
-	 
-	 1.1 Au SN3, le navigateur renvoie un message d'erreur du code source HTML d'une des pages générées
-	 1.2 Le système ferme l'onglet de la page HTML mal générée
-	 1.3 Le système ouvre une nouvelle fenêtre d'erreur et signale le numéro de la section qui a mal été générée
+	 E1 Le livre est vide
+	 ---------------------
+	 1.1 Au SN5, si le livre est vide, le système notifie l'utilisateur
+	 1.2 Le système annule la génération
+
+	 E2 L'utilisateur annule la génération
+	 -------------------------------------
+	 1.1 En SN3 ou A2.2, si l'utilisateur clique sur annuler, le système annule la génération
 	 
