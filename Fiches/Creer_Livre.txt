@@ -8,7 +8,7 @@ DESCRIPTION
 
 HYPOTHÈSES
 
-	L'auteur à les droits nécessaires sur le système de fichiers.
+	L'auteur à les droits nécessaires sur le système de fichiers et il existe suffisamment d'espace disponible.
 
 ACTEURS
 
@@ -16,14 +16,14 @@ ACTEURS
 
 PRÉ CONDITIONS
 
-	Espace sur le disque, le logiciel est ouvert.
+	Le logiciel est ouvert.
 
 SCÉNARIO NOMINAL
 
 	1- L'utilisateur sélectionne Fichier.
 	2- Le système affiche le menu Fichier.
 	3- L'utilisateur sélectionne créer un livre.
-	4- Le système affiche une interface pour saisir le nom du livre et son emplacement dans l'arborescence des fichiers, un bouton valider et un bouton annuler.
+	4- Le système affiche une interface qui permet de saisir le nom du livre et son emplacement dans l'arborescence des fichiers, un bouton valider et un bouton annuler.
 	5- L'utilisateur saisit les informations et valide.
 	6- Le système crée un répertoire au nom du livre qui contiendra les fichiers nécessaires à son élaboration.
 	7- Le système renvoie l'utilisateur vers Continuer jeu SN8.
