@@ -1,8 +1,8 @@
 TODO LIST
 =========
 
-- [x] valider par le groupe 
-- [ ] pas valider par le groupe 
+- [x] validé par le groupe 
+- [ ] pas validé par le groupe 
 
 Diagramme
 ---------
@@ -13,12 +13,12 @@ Diagramme
 Fiches
 ------
 
-- [ ] Analyser_graphe
+- [x] Analyser_graphe
 - [x] continuerJeu
 - [x] Créer_Livre
 - [x] générerHTML
 - [ ] Générer Imprimable
-- [X] Visualiser_graphe
+- [x] Visualiser_graphe
 
 Test-Validation
 ---------------
