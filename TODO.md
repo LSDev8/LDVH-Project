@@ -23,10 +23,10 @@ Fiches
 Test-Validation
 ---------------
 
-- [ ] Analyser Graphe Exception
-- [ ] Analyser Graphe Impossible
-- [ ] Test : Créer une version imprimable du livre
-- [ ] TVAnalyserG
+- [x] Analyser_Graphe_Exception
+- [x] Analyser_Graphe_Impossible
+- [x] Version_Imprimable_Livre
+- [x] TVAnalyserG
 
 Présentation
 ------------
