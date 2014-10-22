@@ -9,7 +9,7 @@ Diagramme
 
 - [x] Diagramme UseCase Général
 - [x] Diagramme de Classe Général
-- [ ] Diagramme de Séquence
+- [x] Diagramme de Séquence
 
 Fiches
 ------
