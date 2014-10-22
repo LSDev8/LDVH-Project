@@ -10,6 +10,7 @@ Diagramme
 - [x] Diagramme UseCase Général
 - [x] Diagramme de Classe Général
 - [x] Diagramme de Séquence
+- [ ] Diagrammes Spécifiques aux composants	
 
 Fiches
 ------
@@ -27,12 +28,21 @@ Test-Validation
 - [x] Analyser_Graphe_Exception
 - [x] Analyser_Graphe_Impossible
 - [x] Version_Imprimable_Livre
+- [ ] Continuation Livre	
+- [ ] Création Livre 		
+- [ ] Générer version HTML 	
 - [x] TVAnalyserG
+- [ ] Visualisation du Graphe
 
 Présentation
 ------------
 
-- [ ] Powerpoint de présentation
+- [x] Powerpoint de présentation
+
+Documents
+---------
+
+- [ ] Rapport (plus tard)
 
 Propositions
 ------------
