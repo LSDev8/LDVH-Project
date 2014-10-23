@@ -1,9 +1,10 @@
 Repartition Presentation
 ========================
 
-- Diagrammes : - métier   : Antoine
-               - use case : Benjy
-	       - séquence : Adrien
+- Diagrammes : 
+ * métier   : Antoine
+ * use case : Benjy
+ * séquence : Adrien
 
 - Fiches : Alexis
 
