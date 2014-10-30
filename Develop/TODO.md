@@ -7,4 +7,6 @@ TODO LIST
 Diagramme de Composants
 -----------------------
 
-- [ ] 
+- [ ] CLivre
+- [ ] CObjet
+
