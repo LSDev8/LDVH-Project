@@ -12,3 +12,10 @@ Diagramme de Composants
 - [ ] CObjet
 - [ ] Dessiner un semblant d'interface graphique
 
+Developpement
+-------------
+
+- [ ] ILivre
+- [ ] ISections
+- [ ] IEnchainements
+- [ ] IObjets
