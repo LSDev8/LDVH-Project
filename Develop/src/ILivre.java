@@ -1,9 +1,9 @@
 public interface ILivre {
-    void creerLivre (String nom, String chemin) ;
-    void ouvrirChemin (String chemin) ;
-    void sauvegarderLivre () ;
-    void supprimerLivre () ;
-    ISections getSections () ;
-    IEnchainements getEnchainements () ;
-    IOBjets getObjets () ;
+    public void creerLivre (String nom, String chemin) ;
+    public void ouvrirChemin (String chemin) ;
+    public void sauvegarderLivre () ;
+    public void supprimerLivre () ;
+    public ISections getSections () ;
+    public IEnchainements getEnchainements () ;
+    public IOBjets getObjets () ;
 }
