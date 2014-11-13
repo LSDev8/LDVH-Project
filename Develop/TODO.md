@@ -10,4 +10,5 @@ Diagramme de Composants
 - [ ] Classe Systeme
 - [ ] CLivre
 - [ ] CObjet
+- [ ] Dessiner un semblant d'interface graphique
 
