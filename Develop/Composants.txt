@@ -1,0 +1,46 @@
+##############
+# COMPOSANTS #
+##############
+
+ILivre
+------
+- creerLivre(nom:String,chemin:String) : void
+- ouvrirLivre(chemin:String) : void
+- sauvegarderLivre() : void
+- supprimerLivre() : void
+- getSections() : ISections
+- getEnchainements() : IEnchainements
+- getObjets() : IObjets
+
+ISections
+--------
+- setTexteSection(id:Integer, texte:String) : Integer
+- getTexteSection(id:Integer) : String
+- listerSections() : String[*]
+- creerSection() : Integer
+- supprimerSection(id:Integer) : void
+- addObjets(idSect:Integer, idObj:Integer) : void
+- removeObjets(id:Integer) : void
+
+IObjets
+------
+- crud objet
+  - creationObjet(nom:String) : Integer
+  - getNomObjet(id:Integer) : String
+  - setNomObjet(id:Integer,nom:String) : void
+  - supprimerObjet(id:Integer) : void
+
+IEnchainements
+-------------
+- crud enchainement
+  - creationEnchainement(idSectSrc:Integer, idSectDest:Integer) : Integer
+  - setTexteEnchainement(id:Integer,texte:String) : void
+  - supprimerEnchainement(id:Integer) : void
+  - addObjets(id:Integer) : void
+  - removeObjets(id:Integer) : void
+
+TRUC NON CASE
+-------------
+- visualiserGraphe() : void
+- genererHTML() : HTML
+- genererPDF() : PDF
