@@ -15,7 +15,7 @@ Diagramme de Composants
 Developpement
 -------------
 
-- [ ] ILivre
-- [ ] ISections
-- [ ] IEnchainements
-- [ ] IObjets
+- [x] ILivre
+- [x] ISections
+- [x] IEnchainements
+- [x] IObjets
