@@ -19,7 +19,7 @@ Developpement
 - [x] ISections
 - [x] IEnchainements
 - [x] IObjets
-- [ ] Livre
-- [ ] Sections
-- [ ] Enchainements
-- [ ] Objets
+- [ ] Livre -> BlueeTheReed
+- [ ] Sections -> Saccard
+- [ ] Enchainements -> Mangarde
+- [ ] Objets -> Sbksba ou autre dev
