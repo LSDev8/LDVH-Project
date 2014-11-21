@@ -7,10 +7,10 @@ TODO LIST
 Diagramme de Composants
 -----------------------
 
-- [ ] Classe Systeme
-- [ ] CLivre
-- [ ] CObjet
-- [ ] Dessiner un semblant d'interface graphique
+- [ ] Classe Systeme -> Orlin91 et Adrien Ferreira
+- [ ] CLivre -> Orlin91 et Adrien Ferreira
+- [ ] CObjet -> Orlin91 et Adrien Ferreira
+- [ ] Dessiner un semblant d'interface graphique -> autre dev super chaud pour le faire
 
 Developpement
 -------------
