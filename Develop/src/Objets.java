@@ -41,4 +41,8 @@ public class Objets implements IObjets {
 			}
 		}
 	}
+
+	public ArrayList<IObjet> getObjets(){
+		return objl;
+	}
 }
