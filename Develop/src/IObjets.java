@@ -6,4 +6,6 @@ public interface IObjets {
 	public void setNomObjet(Integer id, String nom);
 
 	public void supprimerObjet(Integer id);
+
+	public ArrayList<IObjet> getObjets();
 }
