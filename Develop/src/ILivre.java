@@ -5,5 +5,5 @@ public interface ILivre {
     public void supprimerLivre () ;
     public ISections getSections () ;
     public IEnchainements getEnchainements () ;
-    public IOBjets getObjets () ;
+    public IObjets getObjets () ;
 }
