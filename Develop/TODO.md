@@ -7,10 +7,10 @@ TODO LIST
 Diagramme de Composants
 -----------------------
 
-- [ ] Classe Systeme -> Orlin91 et Adrien Ferreira
-- [ ] CLivre -> Orlin91 et Adrien Ferreira
-- [ ] CObjet -> Orlin91 et Adrien Ferreira
-- [ ] Dessiner un semblant d'interface graphique -> autre dev super chaud pour le faire
+- [ ] Classe Systeme -> Orlin91 et Adrien Ferreira ou Sbksba
+- [ ] CLivre -> Orlin91 et Adrien Ferreira ou Sbksba
+- [ ] CObjet -> Orlin91 et Adrien Ferreira ou Sbksba
+- [ ] Dessiner un semblant d'interface graphique -> Mangarde
 
 Developpement
 -------------
@@ -21,5 +21,5 @@ Developpement
 - [x] IObjets
 - [ ] Livre -> BlueeTheReed
 - [ ] Sections -> Saccard
-- [ ] Enchainements -> Mangarde
+- [ ] Enchainements -> Saccard
 - [ ] Objets -> Sbksba ou autre dev
