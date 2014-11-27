@@ -4,7 +4,17 @@ import java.util.ArrayList;
 public class Sections extends ArrayList<Section> implements ISections{
 
 	//Les indices d'une ArrayList pouvant changer...
-	public static int cpt = 0;
+	public int cpt = 0;
+	public static Sections unique = null;
+
+	private Sections(){
+	}
+
+	public static Sections createSections(){
+		if(unique == null)
+			unique = new Sections();
+		return unique;
+	}
 
 	public Integer creerSection(){
 		Section sect = new Section(cpt++);
