@@ -1,4 +1,7 @@
-public interface IObjets {
+import java.util.ArrayList;
+import java.util.Collection;
+
+public interface IObjets extends Collection<IObjet>{
 	public Integer creationObjet(String nom);
 
 	public String getNomObjet(Integer id);
@@ -8,4 +11,5 @@ public interface IObjets {
 	public void supprimerObjet(Integer id);
 
 	public ArrayList<IObjet> getObjets();
+	
 }
