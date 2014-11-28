@@ -1,20 +1,24 @@
 import java.util.ArrayList;
 
-public class Objets extends ArrayList<Objet> implements IObjets {
+public class Objets extends ArrayList<IObjet> implements IObjets {
 
-    private int cpt = 0;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8453940332587040685L;
+	private int compteur = 0;
 
-    public Objets createObjets(Objets o){
+    public void createObjets(IObjets o){
 	if(this == o)
-	    exit(-1);
-	for(Objet e : o)
+	    System.exit(-1);
+	for(IObjet e : o)
 	    creationObjet(e.getNom());
     }
 
     public Integer creationObjet(String nom) {
-	IObjet o = new Objet(cpt++,nom);
-	add(cpt,o);
-	return cpt;
+	IObjet o = new Objet(compteur,nom);
+	add(compteur,o);
+	return compteur++;
     }
 
     @Override
@@ -32,11 +36,8 @@ public class Objets extends ArrayList<Objet> implements IObjets {
 	remove(get(id));
     }
 
-    public ArrayList<IObjet> getObjets(){
-	return (ArrayList<IObjet>)this;
+   public ArrayList<IObjet> getObjets(){
+	return this;
     }
-
-    private void add(Object e){
-	super.add(e);
-    }
+       
 }
