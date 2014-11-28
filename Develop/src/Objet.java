@@ -4,7 +4,7 @@ public class Objet implements IObjet {
 	private Integer id;
 
 	public Objet() {
-		this.nom = null;
+		this.nom = "";
 		this.id = null;
 	}
 
