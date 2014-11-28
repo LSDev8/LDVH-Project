@@ -1,48 +1,42 @@
 import java.util.ArrayList;
 
-public class Objets implements IObjets {
+public class Objets extends ArrayList<Objet> implements IObjets {
 
-	private static Integer cpt = 0;
-	private ArrayList<IObjet> objl = new ArrayList<IObjet>();
+    private int cpt = 0;
 
-	@Override
-	public Integer creationObjet(String nom) {
-		IObjet o = new Objet();
-		o.setId(cpt++);
-		o.setNom(nom);
-		this.objl.add(o);
-		return o.getId();
-	}
+    public Objets createObjets(Objets o){
+	if(this == o)
+	    exit(-1);
+	for(Objet e : o)
+	    creationObjet(e.getNom());
+    }
 
-	@Override
+    public Integer creationObjet(String nom) {
+	IObjet o = new Objet(cpt++,nom);
+	add(cpt,o);
+	return cpt;
+    }
+
+    @Override
 	public String getNomObjet(Integer id) {
-		for (int i = 0; i < objl.size(); i++) {
-			if (objl.get(i).getId() == id) {
-				return objl.get(i).getNom();
-			}
-		}
-		return null;
-	}
+	return get(id).getNom();
+    }
 
-	@Override
+    @Override
 	public void setNomObjet(Integer id, String nom) {
-		for (int i = 0; i < objl.size(); i++) {
-			if (objl.get(i).getId() == id) {
-				objl.get(i).setNom(nom);
-			}
-		}
-	}
+	get(id).setNom(nom);
+    }
 
-	@Override
+    @Override
 	public void supprimerObjet(Integer id) {
-		for (int i = 0; i < objl.size(); i++) {
-			if (objl.get(i).getId() == id) {
-				objl.remove(i);
-			}
-		}
-	}
+	remove(get(id));
+    }
 
-	public ArrayList<IObjet> getObjets(){
-		return objl;
-	}
+    public ArrayList<IObjet> getObjets(){
+	return (ArrayList<IObjet>)this;
+    }
+
+    private void add(Object e){
+	super.add(e);
+    }
 }
