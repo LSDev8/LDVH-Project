@@ -117,6 +117,7 @@ public class Sections implements ISections {
 	/**
 	 * Permet de supprimer l'ensemble des objets d'une section.
 	 * @param id l'identifiant de la section dont il faut supprimer les objets.
+	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void removeObjets (int id) {
 		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
