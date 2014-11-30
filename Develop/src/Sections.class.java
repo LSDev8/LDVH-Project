@@ -27,15 +27,23 @@ public class Sections implements ISections {
 	
 	
 	/**
+	 * Permet de vérifier si une section est valide.
+	 * @param id l'identifiant de la section à tester.
+	 * @throws InvalidParameterException si la section n'existe pas.
+	 */
+	private void verifierSection (int id) {
+		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
+	}
+	
+	
+	/**
 	 * Permet de mettre-à-jour le texte d'une section.
 	 * @param id l'identifiant de la section à modifier.
 	 * @parem texte le nouveau texte de la section.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void setTexteSection (int id, String texte) {
-		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
-		
+		this.verifierSection (id) ;
 		this.sections [id] = texte ;
 	}
 
@@ -43,13 +51,10 @@ public class Sections implements ISections {
 	/**
 	 * Permet de récupérer le texte d'une section.
 	 * @param id l'identifiant de la section à récupérer.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 * @return le texte de la section d'identifiant id.
 	 */
 	public String getTexteSection (int id) {
-		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
-		
+		this.verifierSection (id) ;
 		return this.sections [id] ;
 	}
 
@@ -89,12 +94,9 @@ public class Sections implements ISections {
 	/**
 	 * Permet de supprimer une section.
 	 * @param id identifiant de la section à supprimer.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void supprimerSection (int id) {
-		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
-		
+		this.verifierSection (id) ;
 		this.sections [id] = null ;
 		this.objets [id] = null ;
 	}
@@ -104,12 +106,9 @@ public class Sections implements ISections {
 	 * Permet d'ajouter un objet à une section.
 	 * @param idSect identifiant de la section.
 	 * @param idObj identifiant de l'objet.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void addObjets (int idSect, int idObj) {
-		if (idSect < 0 || idSect >= NB_MAX_SECTIONS || this.sections [idSect] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
-		
+		this.verifierSection (idSect) ;
 		this.objets [idSect].add (idObj) ;
 	}
 
@@ -117,12 +116,9 @@ public class Sections implements ISections {
 	/**
 	 * Permet de supprimer l'ensemble des objets d'une section.
 	 * @param id l'identifiant de la section dont il faut supprimer les objets.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void removeObjets (int id) {
-		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
-		
+		this.verifierSection (id) ;
 		this.objets [id] = new ArrayList <Integer> () ;
 	}
 }
