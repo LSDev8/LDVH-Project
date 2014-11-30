@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 
 public class Sections implements ISections {
-	private static final int NB_MAX_SECTIONS = 100 ; /* Nombre maximum de section pouvant être créées. */
+	private static final int NB_MAX_SECTIONS = 100 ; /* Nombre maximum de sections pouvant être créées. */
 	private String sections [] ;                     /* Tableau de String servant à représenter le contenu textuel des sections */
+	private ArrayList <Integer> objets [] ;          /* Tableau de liste d'entiers servant à représenter les objets contenus dans les sections */
 	
 	
 	/**
@@ -17,19 +18,23 @@ public class Sections implements ISections {
 		
 		this.sections = new String [NB_MAX_SECTIONS] ;
 		for (i = 0 ; i < NB_MAX_SECTIONS ; i ++)
-			sections [i] = null ;
+			this.sections [i] = null ;
+		
+		this.objets = new ArrayList [NB_MAX_SECTIONS] ;
+		for (i = 0 ; i < NB_MAX_SECTIONS ; i ++)
+			this.objets [i] = null ;
 	}
 	
 	
 	/**
-	 * Permet de mettre à jour le texte d'une section.
+	 * Permet de mettre-à-jour le texte d'une section.
 	 * @param id l'identifiant de la section à modifier.
-	 * @parem texte nouveau texte de la section à modifier.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrecte.
+	 * @parem texte le nouveau texte de la section.
+	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void setTexteSection (int id, String texte) {
 		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrecte.") ;
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
 		
 		this.sections [id] = texte ;
 	}
@@ -38,12 +43,12 @@ public class Sections implements ISections {
 	/**
 	 * Permet de récupérer le texte d'une section.
 	 * @param id l'identifiant de la section à récupérer.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrecte.
+	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 * @return le texte de la section d'identifiant id.
 	 */
 	public String getTexteSection (int id) {
 		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrecte.") ;
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
 		
 		return this.sections [id] ;
 	}
@@ -74,30 +79,49 @@ public class Sections implements ISections {
 		if (i == NB_MAX_SECTIONS)
 			throw new InvalidParameterException ("Nombre maximum de section atteint.") ;
 		
-		sections [i] = "" ;
+		this.sections [i] = "" ;
+		this.objets [i] = new ArrayList <Integer> () ;
+		
 		return i ;			
 	}
 
 	
 	/**
-	 * Permet de suppriomer une section.
+	 * Permet de supprimer une section.
 	 * @param id identifiant de la section à supprimer.
-	 * @throws InvalidParameterException si l'identifiant de la section est incorrecte.
+	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
 	 */
 	public void supprimerSection (int id) {
 		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
-			throw new InvalidParameterException ("L'identifiant de section est incorrecte.") ;
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
 		
 		this.sections [id] = null ;
+		this.objets [id] = null ;
 	}
 
-
+	
+	/**
+	 * Permet d'ajouter un objet à une section.
+	 * @param idSect identifiant de la section.
+	 * @param idObj identifiant de l'objet.
+	 * @throws InvalidParameterException si l'identifiant de la section est incorrect.
+	 */
 	public void addObjets (int idSect, int idObj) {
-		/* À faire */
+		if (idSect < 0 || idSect >= NB_MAX_SECTIONS || this.sections [idSect] == null)
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
+		
+		this.objets [idSect].add (idObj) ;
 	}
 
-
-	public void removeObjets (int id) {	
-		/* À faire */
+	
+	/**
+	 * Permet de supprimer l'ensemble des objets d'une section.
+	 * @param id l'identifiant de la section dont il faut supprimer les objets.
+	 */
+	public void removeObjets (int id) {
+		if (id < 0 || id >= NB_MAX_SECTIONS || this.sections [id] == null)
+			throw new InvalidParameterException ("L'identifiant de section est incorrect.") ;
+		
+		this.objets [id] = new ArrayList <Integer> () ;
 	}
 }
