@@ -12,6 +12,7 @@ import java.io.ObjectStreamException;
 import java.io.Serializable;
 
 import objets.Objets;
+import sections.ISections;
 
 public class Livre implements ILivre, Serializable {
 
@@ -20,7 +21,7 @@ public class Livre implements ILivre, Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String titre, chemin;
-	private Sections sections;
+	private ISections sections;
 	private Enchainements ench;
 
 	//Sauvegarde
@@ -106,7 +107,7 @@ public class Livre implements ILivre, Serializable {
 	private void readObject(java.io.ObjectInputStream in)
 			throws IOException, ClassNotFoundException{
 		titre = (String) in.readObject();
-		sections = (Sections) in.readObject();
+		sections = (ISections) in.readObject();
 		ench = (Enchainements) in.readObject();
 	}
 	private void readObjectNoData()
