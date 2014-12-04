@@ -20,6 +20,6 @@ Developpement
 - [x] IEnchainements
 - [x] IObjets
 - [ ] Livre -> BlueeTheReed
-- [ ] Sections -> Saccard
+- [x] Sections -> Saccard
 - [ ] Enchainements -> Saccard
-- [ ] Objets -> Sbksba ou autre dev
+- [x] Objets -> Sbksba ou autre dev
