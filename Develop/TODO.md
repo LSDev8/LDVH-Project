@@ -23,3 +23,19 @@ Developpement
 - [x] Sections -> Saccard
 - [ ] Enchainements -> Saccard
 - [x] Objets -> Sbksba ou autre dev
+
+Presentation
+------------
+
+CHOSES A AVOIR FAIT !!!!!! AVANT la presentation
+
+- [ ] Diagrammes de Composants
+- [ ] Diagrammes de Sequence
+- [ ] Diagrammes de structure interne
+- [ ] Diagrammes de classe de structure interne
+
+Optionel (mais fortement recommander)
+-------------------------------------
+
+- [ ] Synchro des diagrammes avec le code
+- [ ] Preparer un petite demo
