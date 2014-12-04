@@ -1,8 +1,6 @@
 package objets;
 
-import interfaces.*;
-
-public class Objet implements IObjet {
+public class Objet {
 
 	private String nom;
 	private Integer id;
@@ -17,22 +15,18 @@ public class Objet implements IObjet {
 		this.id = id;
 	}
 
-	@Override
 	public String getNom() {
 		return nom;
 	}
 
-	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	@Override
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}

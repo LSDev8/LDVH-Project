@@ -2,11 +2,9 @@ package livre;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-import sections.ISections;
 
 
-
-public class Sections implements ISections {
+public class Sections{
 	private static final int NB_MAX_SECTIONS = 100 ; /* Nombre maximum de sections pouvant être créées. */
 	private String sections [] ;                     /* Tableau de String servant à représenter le contenu textuel des sections */
 	private ArrayList <Integer> objets [] ;          /* Tableau de liste d'entiers servant à représenter les objets contenus dans les sections */

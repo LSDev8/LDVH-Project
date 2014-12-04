@@ -1,18 +1,19 @@
 package livre;
 
-import interfaces.IObjet;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import exceptions.UnknownObjetException;
-import objets.*;
 
 //TODO: Définir une interface ISection
-public class Section implements ISection {
+public class Section {
 
 	private Integer id;
 	private String text;
-	private Objets objets;
+	private ArrayList<Integer> idObjets;
 
 	public Section(Integer n) {
-		objets = new Objets();
+		idObjets = new ArrayList<>();
 		id = n;
 	}
 
@@ -28,25 +29,16 @@ public class Section implements ISection {
 		return text;
 	}
 
-	// J'ai pas trop compris l'implémentation de Benji
-	// Donc dans le doute...
 	public void removeObjet(Integer idObj) throws UnknownObjetException {
-		boolean trouve = false;
-		for (IObjet io : objets.getObjets()) {
-			if (idObj = io.getId()) {
-				objets.getObjets.remove(io);
-				trouve = true;
-				break;
-			}
-		}
-
-		if (!trouve) {
-			throw new UnknownObjetException();
-		}
+		idObjets.remove(idObj);
 	}
 
 	public void addObjet(Integer idObj) {
-
+		idObjets.add(idObj);
+	}
+	
+	public Collection<Integer> getObjets() {
+			return idObjets;
 	}
 
 }

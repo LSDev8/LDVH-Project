@@ -4,7 +4,7 @@ import interfaces.*;
 
 import java.util.ArrayList;
 
-public class Objets extends ArrayList<IObjet> implements IObjets {
+public class Objets extends ArrayList<Objet> implements IObjets {
 
     /**
 	 * 
@@ -15,12 +15,12 @@ public class Objets extends ArrayList<IObjet> implements IObjets {
     public void createObjets(IObjets o){
 	if(this == o)
 	    System.exit(-1);
-	for(IObjet e : o)
+	for(Objet e : o)
 	    creationObjet(e.getNom());
     }
 
     public Integer creationObjet(String nom) {
-	IObjet o = new Objet(compteur,nom);
+	Objet o = new Objet(compteur,nom);
 	add(compteur,o);
 	return compteur++;
     }
@@ -40,7 +40,7 @@ public class Objets extends ArrayList<IObjet> implements IObjets {
 	remove(get(id));
     }
 
-   public ArrayList<IObjet> getObjets(){
+   public ArrayList<Objet> getObjets(){
 	return this;
     }
        

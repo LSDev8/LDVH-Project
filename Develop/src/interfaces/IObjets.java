@@ -1,10 +1,12 @@
 package interfaces;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-public interface IObjets extends Collection<IObjet>{
-	public Integer creationObjet(String nom);
+import objets.Objet;
+
+public interface IObjets extends Collection<Objet> {
+
+	public Integer ajouterObjet(String nom);
 
 	public String getNomObjet(Integer id);
 
@@ -12,6 +14,6 @@ public interface IObjets extends Collection<IObjet>{
 
 	public void supprimerObjet(Integer id);
 
-	public ArrayList<IObjet> getObjets();
-	
+	public Collection<Integer> getListeObjets();
+
 }
