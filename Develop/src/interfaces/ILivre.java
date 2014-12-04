@@ -1,5 +1,8 @@
-import java.io.FileNotFoundException;
+package interfaces;
+
 import java.io.IOException;
+
+import sections.ISections;
 
 public interface ILivre {
     public void creerLivre (String nom, String chemin) ;

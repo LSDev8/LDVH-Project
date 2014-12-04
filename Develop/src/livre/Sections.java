@@ -1,6 +1,7 @@
-package sections;
+package livre;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+
 
 
 public class Sections implements ISections {

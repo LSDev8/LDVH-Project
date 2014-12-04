@@ -1,47 +1,51 @@
+package livre;
+
+import interfaces.IObjet;
+import exceptions.UnknownObjetException;
+import objets.*;
 
 //TODO: Définir une interface ISection
-public class Section implements ISection{
+public class Section implements ISection {
 
 	private Integer id;
 	private String text;
 	private Objets objets;
 
-	public Section(Integer n){
+	public Section(Integer n) {
 		objets = new Objets();
 		id = n;
 	}
 
-	public Integer getID(){
+	public Integer getID() {
 		return id;
 	}
 
-	public void setText(String s){
+	public void setText(String s) {
 		text = s;
 	}
 
-	public String getText(){
+	public String getText() {
 		return text;
 	}
 
-	//J'ai pas trop compris l'implémentation de Benji
-	//Donc dans le doute...
-	public void removeObjet(Integer idObj) 
-		throws UnknownObjetException{
+	// J'ai pas trop compris l'implémentation de Benji
+	// Donc dans le doute...
+	public void removeObjet(Integer idObj) throws UnknownObjetException {
 		boolean trouve = false;
-		for(IObjet io : objets.getObjets(){
-			if(io.getID() = idObj){
+		for (IObjet io : objets.getObjets()) {
+			if (idObj = io.getId()) {
 				objets.getObjets.remove(io);
 				trouve = true;
 				break;
 			}
 		}
 
-		if(! trouve){
+		if (!trouve) {
 			throw new UnknownObjetException();
 		}
 	}
-	
-	public void addObjet(Integer idObj){
+
+	public void addObjet(Integer idObj) {
 
 	}
 

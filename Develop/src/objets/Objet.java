@@ -1,3 +1,7 @@
+package objets;
+
+import interfaces.*;
+
 public class Objet implements IObjet {
 
 	private String nom;

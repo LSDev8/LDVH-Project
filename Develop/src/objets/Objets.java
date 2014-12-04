@@ -1,3 +1,7 @@
+package objets;
+
+import interfaces.*;
+
 import java.util.ArrayList;
 
 public class Objets extends ArrayList<IObjet> implements IObjets {

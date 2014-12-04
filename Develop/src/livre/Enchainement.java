@@ -1,3 +1,7 @@
+package livre;
+
+import interfaces.IObjet;
+
 import java.util.Collection;
 
 

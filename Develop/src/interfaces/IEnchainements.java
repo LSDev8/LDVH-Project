@@ -1,3 +1,5 @@
+package interfaces;
+
 public interface IEnchainements{
 	public Integer creationEnchainement(Integer idSectSec, Integer idSectDest);
 	public void setTextEnchainement(Integer id, String text);

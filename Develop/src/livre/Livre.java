@@ -1,3 +1,7 @@
+package livre;
+
+import interfaces.*;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -6,6 +10,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
+
+import objets.Objets;
 
 public class Livre implements ILivre, Serializable {
 
@@ -25,6 +31,8 @@ public class Livre implements ILivre, Serializable {
 
 		this.chemin = chemin;
 		titre = nom;
+		
+		File f = new File(chemin);
 
 		sections  = Sections.createSections();
 		ench = new Enchainements();
