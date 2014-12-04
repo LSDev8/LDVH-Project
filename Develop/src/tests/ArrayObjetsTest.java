@@ -1,6 +1,11 @@
+package tests;
+
 import static org.junit.Assert.*;
+import interfaces.IObjets;
 
 import java.util.ArrayList;
+
+import objets.Objets;
 
 import org.junit.Before;
 import org.junit.Test;
