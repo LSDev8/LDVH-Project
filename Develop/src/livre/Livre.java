@@ -111,7 +111,6 @@ public class Livre implements ILivre, Serializable {
 	@SuppressWarnings("unused")
 	private void readObjectNoData()
 			throws ObjectStreamException{
-
 	}
 
 	@Override
