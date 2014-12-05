@@ -108,6 +108,7 @@ public class Livre implements ILivre, Serializable {
 		sections = (ArrayList<Section>) in.readObject();
 		ench = in.readObject();
 	}
+	@SuppressWarnings("unused")
 	private void readObjectNoData()
 			throws ObjectStreamException{
 
@@ -160,9 +161,13 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public Integer ajouterSection(String text) {
-		sections.add(new Section(sections.size()));
-		sections.get(sections.size()-1).setText(text);
-		return sections.size()-1;
+		Integer id;
+		Section s = new Section(0);
+		sections.add(s);
+		id = sections.indexOf(s);
+		s.setID(id);
+		s.setText(text);
+		return id;
 	}
 
 	@Override
@@ -202,8 +207,12 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public Integer creerEnchainement(Integer idA, Integer idB, String text) {
-		ench.add(new Enchainement( ench.size(), sections.get(idA), sections.get(idB), text));
-		return ench.size()-1;
+		Integer id;
+		Enchainement e = new Enchainement( 0, sections.get(idA), sections.get(idB), text);
+		ench.add(e);
+		id = ench.indexOf(e);
+		e.setID(id);
+		return id;
 	}
 
 	@Override

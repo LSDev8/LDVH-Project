@@ -21,6 +21,12 @@ public class Enchainement {
 		return null;
 	}
 	
+	//Nécessaire pour respecter l'unicité des IDs malgré les 
+	//suppressions.
+	public void setID(Integer id){
+		this.id = id;
+	}
+	
 	public Integer getID(){
 		return id;
 	}
