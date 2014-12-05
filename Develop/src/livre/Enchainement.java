@@ -35,6 +35,10 @@ public class Enchainement {
 		text = s;
 	}
 	
+	public String getText(){
+		return text;
+	}
+	
 	public void addObjet(Integer id){
 		objetsID.add(id);
 	}
