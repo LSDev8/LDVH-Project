@@ -33,21 +33,20 @@ public class Livre implements ILivre, Serializable {
 	private ObjectInputStream in;
 
 	//Création d'un nouveau livre
-	public void creerLivre(String nom, String chemin){
+	public void creerLivre(String nom, String chemin) throws IOException, NamingException{
 
 		this.chemin = chemin;
 		titre = nom;
-		
+
 		File f = new File(chemin);
 		try {
-			if(!f.createNewFile()) //Le livre existe déjà
-				throw new NamingException("Name already taken");
-		} catch (IOException e) {
+			f.createNewFile();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NamingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			try {
+				e.printStackTrace();
+			} catch (Exception e1) {}
+			throw e;
 		}
 
 		sections = new ArrayList<>();
@@ -97,24 +96,36 @@ public class Livre implements ILivre, Serializable {
 
 	private void writeObject(java.io.ObjectOutputStream out)
 			throws IOException{
+		
+		//TODO: Modifier quand Sections sera complété
+		throw new IOException("Non implémenté");
+		/*
 		out.writeObject(titre);
 		out.writeObject(sections);
 		out.writeObject(ench);
+		*/
 
 	}
 	private void readObject(java.io.ObjectInputStream in)
 			throws IOException, ClassNotFoundException{
 		titre = (String) in.readObject();
-		sections = (ArrayList<Section>) in.readObject();
-		ench = in.readObject();
+		
+		throw new IOException("Non implémenté");
+		
+		//sections = (ArrayList<Section>) in.readObject();
+		//ench = in.readObject();
 	}
+	@SuppressWarnings("unused")
 	private void readObjectNoData()
 			throws ObjectStreamException{
-
+	}
+	
+	public String getTitre(){
+		return titre;
 	}
 
 	@Override
-	public void changerTitre(String nom) {
+	public void setTitre(String nom) {
 		this.titre = nom;
 	}
 
@@ -160,9 +171,13 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public Integer ajouterSection(String text) {
-		sections.add(new Section(sections.size()));
-		sections.get(sections.size()-1).setText(text);
-		return sections.size()-1;
+		Integer id;
+		Section s = new Section(0);
+		sections.add(s);
+		id = sections.indexOf(s);
+		s.setID(id);
+		s.setText(text);
+		return id;
 	}
 
 	@Override
@@ -202,8 +217,12 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public Integer creerEnchainement(Integer idA, Integer idB, String text) {
-		ench.add(new Enchainement( ench.size(), sections.get(idA), sections.get(idB), text));
-		return ench.size()-1;
+		Integer id;
+		Enchainement e = new Enchainement( 0, sections.get(idA), sections.get(idB), text);
+		ench.add(e);
+		id = ench.indexOf(e);
+		e.setID(id);
+		return id;
 	}
 
 	@Override
@@ -232,6 +251,15 @@ public class Livre implements ILivre, Serializable {
 	@Override
 	public void supprimerObjetEnchainement(Integer idSection, Integer idObjet) {
 		ench.get(idSection).delObjet(idObjet);
+	}
+
+	@Override
+	public String getTextEnchainement(Integer id) {
+		return ench.get(id).getText();
+	}
+	
+	public void supprimerSection(Integer id){
+		ench.remove(id);
 	}
 
 }

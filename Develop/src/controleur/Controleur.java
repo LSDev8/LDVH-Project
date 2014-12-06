@@ -45,7 +45,7 @@ public class Controleur implements IControleur {
 	@Override
 	public void changerTitre(String nom) {
 		// TODO Auto-generated method stub
-		livre.changerTitre(nom);
+		livre.setTitre(nom);
 	}
 
 	@Override

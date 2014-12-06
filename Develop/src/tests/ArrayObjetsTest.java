@@ -19,25 +19,25 @@ public class ArrayObjetsTest {
 	@Before
 	public void setUp() {
 		obs1 = new Objets();
-		i = obs1.creationObjet("sword");
-		obs1.creationObjet("sword2");
+		i = obs1.ajouterObjet("sword");
+		obs1.ajouterObjet("sword2");
 	}
 
 	@Test
 	public void testcreationObjet() {
-		assertTrue(obs1.creationObjet("key") != 0);
+		assertTrue(obs1.ajouterObjet("key") != 0);
 	}
 
 	@Test
 	public void testgetNomObjet() {
-		int i = obs1.creationObjet("sword");
+		int i = obs1.ajouterObjet("sword");
 		assertTrue(i != 0);
 		assertEquals("sword", obs1.getNomObjet(i));
 	}
 
 	@Test
 	public void testsetNomObjet() {
-		i = obs1.creationObjet("sword2");
+		i = obs1.ajouterObjet("sword2");
 
 		obs1.setNomObjet(i, "key");
 		assertEquals("key", obs1.getNomObjet(i));
@@ -52,6 +52,6 @@ public class ArrayObjetsTest {
 	
 	@Test
 	public void testgetObjets() {
-		assertTrue(obs1.getObjets() instanceof ArrayList<?>);
+		assertTrue(obs1.getListeObjets() instanceof ArrayList<?>);
 	}
 }
