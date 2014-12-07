@@ -12,12 +12,10 @@ public interface IControleur {
     public void sauvegarderLivre () throws IOException ;
     public void supprimerLivre () ;
     public void changerTitre(String nom);
-    public Collection<Integer> getListeSection();
-    public Collection<Integer> getListeEnchainement();
-    public Collection<Integer> getListeObjetsEnchainement();
-    public Collection<Integer> getListeObjetsSection();
 
     //Section
+    public Collection<Integer> getListeSection();
+    public Collection<Integer> getListeObjetsSection();
     public Integer ajouterSection(String text); 
     public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens);
     public void modifierTextSection(Integer id, String text);
@@ -27,17 +25,22 @@ public interface IControleur {
     public Collection<Integer> getListeObjetsSection(Integer idSection);
     
     //Enchainement
+    public Collection<Integer> getListeEnchainement();
+    public Collection<Integer> getListeObjetsEnchainement();
     public Integer creerEnchainement(Integer idA, Integer idB, String text);
     public void modifierTextEnchainement(Integer id, String text);
     public void ajouterObjetEnchainement(Integer idEnchainement, Integer idObjet);
     public void setSourceEnchainement(Integer idEnchainement, Integer idSource);
     public void setDestinationEnchainement(Integer idEnchainement, Integer idDest);
+    public void getSourceEnchainement(Integer idEnchainement);
+    public void getDestinationEnchainement(Integer idEnchainement);
+    public void getTexteEnchainement(Integer idEnchainement);
     public void supprimerObjetEnchainement(Integer idSection, Integer idObjet);
 
     // Objets
+    public Collection<Integer> getListeObjets();
     public Integer ajouterObjet(String nom);
     public String getNomObjet(Integer id);
     public void setNomObjet(Integer id, String nom);
     public void supprimerObjet(Integer id);
-    public Collection<Integer> getListeObjets();
 }
