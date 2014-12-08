@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.naming.NamingException;
 
+import livre.Livre;
 import exceptions.UninitializedLivreException;
 import exceptions.UnknownObjetException;
 import interfaces.ComposantFactory;
@@ -39,125 +40,83 @@ public class Controleur implements IControleur {
 	@Override
 	public void sauvegarderLivre() throws IOException,
 			UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.sauvegarderLivre();
+		this.getLivre().sauvegarderLivre();
 	}
 
 	@Override
 	public void supprimerLivre() throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.supprimerLivre();
+		this.getLivre().supprimerLivre();
 	}
 
 	@Override
 	public void changerTitre(String nom) throws UninitializedLivreException {
-		// TODO Auto-generated method stub
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		livre.setTitre(nom);
+		this.getLivre().setTitre(nom);
 	}
 
 	@Override
 	public Collection<Integer> getListeSection()
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getListeSection();
+		return this.getLivre().getListeSection();
 	}
 
 	@Override
 	public Collection<Integer> getListeEnchainement()
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getListeEnchainement();
+		return this.getLivre().getListeEnchainement();
 	}
 
 	@Override
 	public Collection<Integer> getListeObjetsEnchainement()
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getListeObjetsEnchainement();
+		return this.getLivre().getListeObjetsEnchainement();
 	}
 
 	@Override
 	public Collection<Integer> getListeObjetsSection()
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getListeObjetsSection();
+		return this.getLivre().getListeObjetsSection();
 	}
 
 	@Override
 	public Integer ajouterSection(String text)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.ajouterSection(text);
+		return this.getLivre().ajouterSection(text);
 	}
 
 	@Override
 	public Integer ajouterSectionAvecEnsemble(String text,
 			Collection<Integer> ens) throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.ajouterSectionAvecEnsemble(text, ens);
+		return this.getLivre().ajouterSectionAvecEnsemble(text, ens);
 	}
 
 	@Override
 	public void modifierTextSection(Integer id, String text)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.modifierTextSection(id, text);
+		this.getLivre().modifierTextSection(id, text);
 	}
 
 	@Override
 	public void ajouterObjetSection(Integer idSection, Integer idObjet)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.ajouterObjetSection(idSection, idObjet);
+		this.getLivre().ajouterObjetSection(idSection, idObjet);
 	}
 
 	@Override
 	public void supprimerObjetSection(Integer idSection, Integer idObjet)
 			throws UnknownObjetException, UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.supprimerObjetSection(idSection, idObjet);
+		this.getLivre().supprimerObjetSection(idSection, idObjet);
 	}
 
 	@Override
 	public String getTextSection(Integer idSection)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getTextSection(idSection);
+		return this.getLivre().getTextSection(idSection);
 	}
 
 	@Override
 	public Collection<Integer> getListeObjetsSection(Integer idSection)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getListeObjetsSection(idSection);
+		return this.getLivre().getListeObjetsSection(idSection);
 	}
 
 	@Override
@@ -172,118 +131,88 @@ public class Controleur implements IControleur {
 	@Override
 	public void modifierTextEnchainement(Integer id, String text)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.modifierTextEnchainement(id, text);
+		this.getLivre().modifierTextEnchainement(id, text);
 	}
 
 	@Override
 	public void ajouterObjetEnchainement(Integer idEnchainement, Integer idObjet)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.ajouterObjetEnchainement(idEnchainement, idObjet);
+		this.getLivre().ajouterObjetEnchainement(idEnchainement, idObjet);
 	}
 
 	@Override
 	public void setSourceEnchainement(Integer idEnchainement, Integer idSource)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.setSourceEnchainement(idEnchainement, idSource);
+		this.getLivre().setSourceEnchainement(idEnchainement, idSource);
 	}
 
 	@Override
 	public void setDestinationEnchainement(Integer idEnchainement,
 			Integer idDest) throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.setDestinationEnchainement(idEnchainement, idDest);
+		this.getLivre().setDestinationEnchainement(idEnchainement, idDest);
 	}
 
 	@Override
 	public void supprimerObjetEnchainement(Integer idSection, Integer idObjet)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		livre.supprimerObjetEnchainement(idSection, idObjet);
+		this.getLivre().supprimerObjetEnchainement(idSection, idObjet);
 	}
 
 	@Override
 	public Integer ajouterObjet(String nom) throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return objets.ajouterObjet(nom);
+		return this.getObjets().ajouterObjet(nom);
 	}
 
 	@Override
 	public String getNomObjet(Integer id) throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return objets.getNomObjet(id);
+		return this.getObjets().getNomObjet(id);
 	}
 
 	@Override
 	public void setNomObjet(Integer id, String nom)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		objets.setNomObjet(id, nom);
+		this.getObjets().setNomObjet(id, nom);
 	}
 
 	@Override
 	public void supprimerObjet(Integer id) throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		objets.supprimerObjet(id);
+		this.getObjets().supprimerObjet(id);
 	}
 
 	@Override
 	public Collection<Integer> getListeObjets()
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return objets.getListeObjets();
+		return this.getObjets().getListeObjets();
 	}
 
 	@Override
 	public Integer getSourceEnchainement(Integer idEnchainement)
 			throws UninitializedLivreException {
-		// TODO Module de remplacement de méthode auto-généré
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getIdSourceEnchainement(idEnchainement);
+		return this.getLivre().getIdSourceEnchainement(idEnchainement);
 	}
 
 	@Override
 	public Integer getDestinationEnchainement(Integer idEnchainement)
 			throws UninitializedLivreException {
-		// TODO Module de remplacement de méthode auto-généré
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getIdDestEnchainement(idEnchainement);
+		return this.getLivre().getIdDestEnchainement(idEnchainement);
 	}
 
 	@Override
 	public String getTexteEnchainement(Integer idEnchainement)
 			throws UninitializedLivreException {
-		// TODO Module de remplacement de méthode auto-généré
-		if (livre == null)
+		return this.getLivre().getTextEnchainement(idEnchainement);
+	}
+	
+	private Livre getLivre() throws UninitializedLivreException {
+		if(this.livre==null)
 			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return livre.getTextEnchainement(idEnchainement);
+		return (Livre)this.livre;
+	}
+	
+	private IObjets getObjets() throws UninitializedLivreException {
+		if(this.livre==null)
+			throw new UninitializedLivreException("Livre non init");
+		return this.objets;
 	}
 
 }
