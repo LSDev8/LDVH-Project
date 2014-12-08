@@ -42,13 +42,13 @@ public class LDVHIHM {
     }
 
     private void waitCommandes() {
-	String cmd;
-	Boolean quit = false;
+	string cmd;
+	bool quit = false;
 
 	listerCommandes("");
 
 	do {
-	    cmd = scanner.nextLine();
+	    cmd = sc.nextLine();
 	    if(cmd.matches("^listerCommandes( .*)?$"))
 		listerCommandes(cmd);
 	    else if(cmd.matches("^creerLivre( .*)?$"))
@@ -120,12 +120,12 @@ public class LDVHIHM {
     // }
 
     private void creerLivre(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.creerLivre(args[1], args[2]);
     }
 
     private void ouvrirLivre(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	try {
 	    ctrl.ouvrirLivre(args[1]);
 	} catch (IOException e) {
@@ -134,7 +134,7 @@ public class LDVHIHM {
     }
 
     private void sauvegarderLivre(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	try {
 	    ctrl.sauvegarderLivre();
 	} catch (IOException e) {
@@ -143,21 +143,21 @@ public class LDVHIHM {
     }
 
     private void supprimerLivre(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.supprimerLivre();
     }
 
     private void changerTitre(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.changerTitre(args[1]);
     }
 
     private void afficherSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	afficherSection(Integer.parseInt(args[1]));
     }
 
-    private void afficherSection(Integer idSection) {
+    private void afficherSection(Integer id) {
 	Collection<Integer> idObjets;
 	Collection<Integer> idEnchainements;
 
@@ -189,42 +189,42 @@ public class LDVHIHM {
     }
 
     private void getListeEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Collection<Integer> retour = ctrl.getListeEnchainement();
     }
 
     private void getListeObjetsEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Collection<Integer> retour = ctrl.getListeObjetsEnchainement();
     }
 
     private void getListeObjetsSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Collection<Integer> retour = ctrl.getListeObjetsSection();
     }
 
     private void ajouterSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Integer retour = ctrl.ajouterSection(args[1]);
     }
 
     private void ajouterSectionAvecEnsemble(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Integer retour = ctrl.ajouterSectionAvecEnsemble(args[1], args[2]);
     }
 
     private void modifierTextSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.modifierTextSection(args[1], args[2]);
     }
 
     private void ajouterObjetSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.ajouterObjetSection(args[1], args[2]);
     }
 
     private void supprimerObjetSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	try {
 	    ctrl.supprimerObjetSection(args[1], args[2]);
 	} catch (UnknownObjetException e) {
@@ -233,67 +233,67 @@ public class LDVHIHM {
     }
 
     private void getTextSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	String retour = ctrl.getTextSection(args[1]);
     }
 
     private void getListeObjetsSection(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Collection<Integer> retour = ctrl.getListeObjetsSection(args[1]);
     }
 
     private void creerEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Integer retour = ctrl.creerEnchainement(args[1], args[2], args[3]);
     }
 
     private void modifierTextEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.modifierTextEnchainement(args[1], args[2]);
     }
 
     private void ajouterObjetEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.ajouterObjetEnchainement(args[1], args[2]);
     }
 
     private void setSourceEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.setSourceEnchainement(args[1], args[2]);
     }
 
     private void setDestinationEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.setDestinationEnchainement(args[1], args[2]);
     }
 
     private void supprimerObjetEnchainement(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.supprimerObjetEnchainement(args[1], args[2]);
     }
 
     private void ajouterObjet(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Integer retour = ctrl.ajouterObjet(args[1]);
     }
 
     private void getNomObjet(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	String retour = ctrl.getNomObjet(args[1]);
     }
 
     private void setNomObjet(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.setNomObjet(args[1], args[2]);
     }
 
     private void supprimerObjet(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	ctrl.supprimerObjet(args[1]);
     }
 
     private void getListeObjets(String cmd) {
-	String[] args = cmd.split(" +");
+	String args = cmd.split(" +");
 	Collection<Integer> retour = ctrl.getListeObjets();
     }
 
