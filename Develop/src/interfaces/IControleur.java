@@ -18,32 +18,32 @@ public interface IControleur {
 
     //Section
     public Collection<Integer> getListeSection() throws UninitializedLivreException;
-    public Collection<Integer> getListeObjetsSection();
-    public Integer ajouterSection(String text); 
-    public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens);
-    public void modifierTextSection(Integer id, String text);
-    public void ajouterObjetSection(Integer idSection, Integer idObjet);
-    public void supprimerObjetSection(Integer idSection, Integer idObjet) throws UnknownObjetException;
-    public String getTextSection(Integer idSection);
-    public Collection<Integer> getListeObjetsSection(Integer idSection);
+    public Collection<Integer> getListeObjetsSection() throws UninitializedLivreException;
+    public Integer ajouterSection(String text) throws UninitializedLivreException; 
+    public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens) throws UninitializedLivreException;
+    public void modifierTextSection(Integer id, String text) throws UninitializedLivreException;
+    public void ajouterObjetSection(Integer idSection, Integer idObjet) throws UninitializedLivreException;
+    public void supprimerObjetSection(Integer idSection, Integer idObjet) throws UnknownObjetException, UninitializedLivreException;
+    public String getTextSection(Integer idSection) throws UninitializedLivreException;
+    public Collection<Integer> getListeObjetsSection(Integer idSection) throws UninitializedLivreException;
     
     //Enchainement
     public Collection<Integer> getListeEnchainement() throws UninitializedLivreException;
-    public Collection<Integer> getListeObjetsEnchainement();
-    public Integer creerEnchainement(Integer idA, Integer idB, String text);
-    public void modifierTextEnchainement(Integer id, String text);
-    public void ajouterObjetEnchainement(Integer idEnchainement, Integer idObjet);
-    public void setSourceEnchainement(Integer idEnchainement, Integer idSource);
-    public void setDestinationEnchainement(Integer idEnchainement, Integer idDest);
-    public void getSourceEnchainement(Integer idEnchainement);
-    public void getDestinationEnchainement(Integer idEnchainement);
-    public void getTexteEnchainement(Integer idEnchainement);
-    public void supprimerObjetEnchainement(Integer idSection, Integer idObjet);
+    public Collection<Integer> getListeObjetsEnchainement() throws UninitializedLivreException;
+    public Integer creerEnchainement(Integer idA, Integer idB, String text) throws UninitializedLivreException;
+    public void modifierTextEnchainement(Integer id, String text) throws UninitializedLivreException;
+    public void ajouterObjetEnchainement(Integer idEnchainement, Integer idObjet) throws UninitializedLivreException;
+    public void setSourceEnchainement(Integer idEnchainement, Integer idSource) throws UninitializedLivreException;
+    public void setDestinationEnchainement(Integer idEnchainement, Integer idDest) throws UninitializedLivreException;
+    public Integer getSourceEnchainement(Integer idEnchainement) throws UninitializedLivreException;
+    public Integer getDestinationEnchainement(Integer idEnchainement) throws UninitializedLivreException;
+    public String getTexteEnchainement(Integer idEnchainement) throws UninitializedLivreException;
+    public void supprimerObjetEnchainement(Integer idSection, Integer idObjet) throws UninitializedLivreException;
 
     // Objets
-    public Collection<Integer> getListeObjets();
-    public Integer ajouterObjet(String nom);
-    public String getNomObjet(Integer id);
-    public void setNomObjet(Integer id, String nom);
-    public void supprimerObjet(Integer id);
+    public Collection<Integer> getListeObjets() throws UninitializedLivreException;
+    public Integer ajouterObjet(String nom) throws UninitializedLivreException;
+    public String getNomObjet(Integer id) throws UninitializedLivreException;
+    public void setNomObjet(Integer id, String nom) throws UninitializedLivreException;
+    public void supprimerObjet(Integer id) throws UninitializedLivreException;
 }
