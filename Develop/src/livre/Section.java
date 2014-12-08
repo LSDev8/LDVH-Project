@@ -39,6 +39,16 @@ public class Section {
 	public String getText() {
 		return text;
 	}
+	
+	public void addEnch(Integer id){
+		idEnchSrc.add(id);
+	}
+	public void delEnch(Integer id){
+		idEnchSrc.remove(id);
+	}
+	public Collection<Integer> getEnchIDList(Integer id){
+		return (Collection<Integer>) idEnchSrc.clone();
+	}
 
 	public void removeObjet(Integer idObj) {
 		idObjets.remove(idObj);

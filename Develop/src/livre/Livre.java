@@ -225,6 +225,8 @@ public class Livre implements ILivre, Serializable {
 		ench.add(e);
 		id = ench.indexOf(e);
 		e.setID(id);
+		//Le section sait qu'elle est source d'un nouvel enchainement
+		sections.get(idA).addEnch(id);
 		return id;
 	}
 
@@ -241,8 +243,12 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public void setSourceEnchainement(Integer idEnchainement, Integer idSource) {
+		//On supprime l'enchainement de la liste de la source
+		sections.get(ench.get(idEnchainement).getSource().getID()).delEnch(idEnchainement);
+		//La section cible apprend qu'elle est source d'un nouvel enchainement
+		sections.get(idSource).addEnch(idEnchainement);
 		ench.get(idEnchainement).setSource(sections.get(idSource));
-
+		
 	}
 
 	@Override
@@ -268,6 +274,8 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public void supprimerEnchainement(Integer id) {
+		//On supprime cet enchainement de la liste de la section source
+		sections.get(ench.get(id).getSource().getID()).delEnch(id);
 		this.ench.remove(id);
 	}
 	
