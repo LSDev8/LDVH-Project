@@ -322,7 +322,7 @@ public class Livre implements ILivre, Serializable {
 				inaccessibles.remove(i);
 				//Pour chacune de ces sections cibles
 				for(Integer s : sections.get(i).getListeEnch()){
-					dest = sections.get(s).getIdDestinationEnchainement();
+					dest = sections.get(s).getIdDestinationEnchainement();					
 					//Si elles sont encore dans la liste des inaccessibles
 					if(inaccessibles.contains(dest))
 						//On prévoit de les visiter
