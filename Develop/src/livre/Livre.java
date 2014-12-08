@@ -24,16 +24,17 @@ public class Livre implements ILivre, Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private String titre, chemin;
-	//private ISections sections;
+	// private ISections sections;
 	private ArrayList<Section> sections;
 	private ArrayList<Enchainement> ench;
 
-	//Sauvegarde
+	// Sauvegarde
 	private ObjectOutputStream out;
 	private ObjectInputStream in;
 
-	//Création d'un nouveau livre
-	public void creerLivre(String nom, String chemin) throws IOException, NamingException{
+	// Création d'un nouveau livre
+	public void creerLivre(String nom, String chemin) throws IOException,
+			NamingException {
 
 		this.chemin = chemin;
 		titre = nom;
@@ -45,21 +46,22 @@ public class Livre implements ILivre, Serializable {
 			// TODO Auto-generated catch block
 			try {
 				e.printStackTrace();
-			} catch (Exception e1) {}
+			} catch (Exception e1) {
+			}
 			throw e;
 		}
 
 		sections = new ArrayList<>();
 		ench = new ArrayList<>();
 	}
-	
-	//Ouvre un livre qui existe déjà
-	public void creerLivre(String chemin) throws IOException{
+
+	// Ouvre un livre qui existe déjà
+	public void creerLivre(String chemin) throws IOException {
 		ouvrirLivre(chemin);
 	}
 
-	//TODO: + Rendre la classe sérializable
-	public void ouvrirLivre(String chemin) throws IOException{
+	// TODO: + Rendre la classe sérializable
+	public void ouvrirLivre(String chemin) throws IOException {
 		FileInputStream fileIN = new FileInputStream(chemin);
 		in = new ObjectInputStream(fileIN);
 
@@ -75,7 +77,7 @@ public class Livre implements ILivre, Serializable {
 		fileIN.close();
 	}
 
-	public void sauvegarderLivre() throws IOException{
+	public void sauvegarderLivre() throws IOException {
 		FileOutputStream fileOut = new FileOutputStream(chemin);
 		out = new ObjectOutputStream(fileOut);
 
@@ -84,43 +86,42 @@ public class Livre implements ILivre, Serializable {
 		out.close();
 		out = null;
 		fileOut.close();
-		return ;
+		return;
 	}
 
-	public void supprimerLivre(){
+	public void supprimerLivre() {
 		File f = new File(chemin);
 		f.delete();
 
-		return ;
+		return;
 	}
 
-	private void writeObject(java.io.ObjectOutputStream out)
-			throws IOException{
-		
-		//TODO: Modifier quand Sections sera complété
+	private void writeObject(java.io.ObjectOutputStream out) throws IOException {
+
+		// TODO: Modifier quand Sections sera complété
 		throw new IOException("Non implémenté");
 		/*
-		out.writeObject(titre);
-		out.writeObject(sections);
-		out.writeObject(ench);
-		*/
+		 * out.writeObject(titre); out.writeObject(sections);
+		 * out.writeObject(ench);
+		 */
 
 	}
-	private void readObject(java.io.ObjectInputStream in)
-			throws IOException, ClassNotFoundException{
+
+	private void readObject(java.io.ObjectInputStream in) throws IOException,
+			ClassNotFoundException {
 		titre = (String) in.readObject();
-		
+
 		throw new IOException("Non implémenté");
-		
-		//sections = (ArrayList<Section>) in.readObject();
-		//ench = in.readObject();
+
+		// sections = (ArrayList<Section>) in.readObject();
+		// ench = in.readObject();
 	}
+
 	@SuppressWarnings("unused")
-	private void readObjectNoData()
-			throws ObjectStreamException{
+	private void readObjectNoData() throws ObjectStreamException {
 	}
-	
-	public String getTitre(){
+
+	public String getTitre() {
 		return titre;
 	}
 
@@ -133,9 +134,9 @@ public class Livre implements ILivre, Serializable {
 	public Collection<Integer> getListeSection() {
 		Collection<Integer> it = new ArrayList<>();
 
-		for(Section e : sections)
+		for (Section e : sections)
 			it.add(e.getID());
-		
+
 		return it;
 	}
 
@@ -143,9 +144,9 @@ public class Livre implements ILivre, Serializable {
 	public Collection<Integer> getListeEnchainement() {
 		Collection<Integer> it = new ArrayList<>();
 
-		for(Enchainement e : ench)
+		for (Enchainement e : ench)
 			it.add(e.getID());
-		
+
 		return it;
 	}
 
@@ -153,9 +154,9 @@ public class Livre implements ILivre, Serializable {
 	public Collection<Integer> getListeObjetsEnchainement() {
 		Collection<Integer> it = new ArrayList<>();
 
-		for(Enchainement e : ench)
+		for (Enchainement e : ench)
 			it.addAll(e.getObjets());
-		
+
 		return it;
 	}
 
@@ -163,10 +164,10 @@ public class Livre implements ILivre, Serializable {
 	public Collection<Integer> getListeObjetsSection() {
 		Collection<Integer> it = new ArrayList<>();
 
-		for(Section e : sections)
+		for (Section e : sections)
 			it.addAll(e.getObjets());
-		
-		return it;	
+
+		return it;
 	}
 
 	@Override
@@ -181,12 +182,13 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens) {
+	public Integer ajouterSectionAvecEnsemble(String text,
+			Collection<Integer> ens) {
 		Section s = sections.get(ajouterSection(text));
-		for(Integer i: ens)
+		for (Integer i : ens)
 			s.addObjet(i);
 		return s.getID();
-		
+
 	}
 
 	@Override
@@ -200,9 +202,10 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public void supprimerObjetSection(Integer idSection, Integer idObjet) throws UnknownObjetException {
+	public void supprimerObjetSection(Integer idSection, Integer idObjet)
+			throws UnknownObjetException {
 		sections.get(idSection).removeObjet(idObjet);
-		
+
 	}
 
 	@Override
@@ -218,17 +221,19 @@ public class Livre implements ILivre, Serializable {
 	@Override
 	public Integer creerEnchainement(Integer idA, Integer idB, String text) {
 		Integer id;
-		Enchainement e = new Enchainement( 0, sections.get(idA), sections.get(idB), text);
+		Enchainement e = new Enchainement(0, sections.get(idA),
+				sections.get(idB), text);
 		ench.add(e);
 		id = ench.indexOf(e);
 		e.setID(id);
+		sections.get(idA).addEnch(id);
 		return id;
 	}
 
 	@Override
 	public void modifierTextEnchainement(Integer id, String text) {
 		ench.get(id).setText(text);
-		
+
 	}
 
 	@Override
@@ -238,14 +243,17 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public void setSourceEnchainement(Integer idEnchainement, Integer idSource) {
-			ench.get(idEnchainement).setSource(sections.get(idSource));
-		
+		sections.get(ench.get(idEnchainement).getIdSourceEnchainement()).delEnch(idEnchainement);
+		ench.get(idEnchainement).setSource(sections.get(idSource));
+		sections.get(idSource).addEnch(idEnchainement);
+
 	}
 
 	@Override
-	public void setDestinationEnchainement(Integer idEnchainement, Integer idSection) {
+	public void setDestinationEnchainement(Integer idEnchainement,
+			Integer idSection) {
 		ench.get(idEnchainement).setDestination(sections.get(idSection));
-		
+
 	}
 
 	@Override
@@ -257,9 +265,78 @@ public class Livre implements ILivre, Serializable {
 	public String getTextEnchainement(Integer id) {
 		return ench.get(id).getText();
 	}
-	
-	public void supprimerSection(Integer id){
+
+	public void supprimerSection(Integer id) {
 		ench.remove(id);
 	}
 
+	/**
+	 * Cette méthode rend la liste des indices des Sections qui ne sont pas
+	 * atteignables. On part du principe que la section d'indice zéro est
+	 * toujours atteignable, c'est la section de départ
+	 * 
+	 * Ou pour résumer:
+	 * 
+	 * Johnny walks around, strutting along the lanes of Section and
+	 * Enchainement, finding those who don't belong, who never found their place
+	 * in the flow of the story. 
+	 * And then, he kills them. 
+	 * Just kidding... 
+	 * He just points his finger so that the Stasi may know who they are. What they
+	 * do with this informations is up to them. 
+	 * 
+	 * He's innocent. 
+	 * 
+	 * He swears.
+	 * 
+	 * @author 2900600
+	 * 
+	 * @param l Le livre à chercher
+	 * @return La liste des indices des Sections non atteingnables
+	 */
+	public Collection<Integer> innaccessible() {
+		
+		Integer dest;
+		ILivre l = this;
+		//Indices des sections non accessibles
+		Collection<Integer> inaccessibles = l.getListeSection();
+		//Indices des sections que l'on est en train de parcourir
+		Collection<Integer> visites = new ArrayList<>();
+		
+		//Si la liste des sections est vide, on rend un ensemble vide
+		if(sections.size() == 0)
+			return (Collection<Integer>) new ArrayList<Integer>();
+		
+		//On considère toujours que la section zéro est accessible
+		inaccessibles.remove((Integer) 0);
+		visites.add((Integer) 0);
+
+		//Tant qu'une sections reste à visiter
+		while(visites.size() > 0){
+			//pour le premier membre de la liste
+			for(Integer i : visites){
+				//on le supprime de la liste
+				visites.remove(i);
+				//Et des sections non accessibles
+				inaccessibles.remove(i);
+				//Pour chacune de ces sections cibles
+				for(Integer s : sections.get(i).getListeEnch()){
+					dest = sections.get(s).getIdDestinationEnchainement();
+					//Si elles sont encore dans la liste des inaccessibles
+					if(inaccessibles.contains(dest))
+						//On prévoit de les visiter
+						visites.add(dest);
+				}
+
+			}
+		}
+
+
+
+
+
+		
+		return inaccessibles;
+
+	}
 }
