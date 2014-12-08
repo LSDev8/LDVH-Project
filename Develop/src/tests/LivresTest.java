@@ -166,11 +166,8 @@ public class LivresTest {
 		idSectionA = this.l.ajouterSection(texteSectA);
 		idSectionB = this.l.ajouterSection(texteSectB);
 
-		idEnchainement = this.l.creerEnchainement(
-				idSectionA, 
-				idSectionB,
-				texteEnchainement
-		);
+		idEnchainement = this.l.creerEnchainement(idSectionA, idSectionB,
+				texteEnchainement);
 
 		this.l.ajouterObjetEnchainement(idEnchainement, idObj);
 		this.l.supprimerObjetEnchainement(idEnchainement, idObj);
@@ -197,17 +194,17 @@ public class LivresTest {
 		assert (this.l.getListeObjetsSection(idSect).size() == 0);
 
 	}
-	
+
 	@Test
-	public void testSupprimerSection(){
+	public void testSupprimerSection() {
 		final String texteSect = "Titre section";
-		
+
 		this.l.supprimerSection(this.l.ajouterSection(texteSect));
-		assert(this.l.getListeSection().size()==0);
+		assert (this.l.getListeSection().size() == 0);
 	}
-	
+
 	@Test
-	public void testSupprimerEnchainemet(){
+	public void testSupprimerEnchainemet() {
 		int ancientSize;
 		ArrayList<Integer> list;
 		Integer idSectionA, idSectionB, idEnchainement;
@@ -222,9 +219,8 @@ public class LivresTest {
 		idEnchainement = l.creerEnchainement(idSectionA, idSectionB,
 				textEnchainement);
 		
-
-		this.l.supp
-		list = (ArrayList<Integer>) l.getListeEnchainement();
-		
+		this.l.supprimerEnchainement(idEnchainement);
+		assert(this.l.getListeEnchainement().size()==0);
+	}
 
 }
