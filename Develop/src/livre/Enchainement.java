@@ -42,6 +42,7 @@ public class Enchainement {
 	public void addObjet(Integer id){
 		objetsID.add(id);
 	}
+
 	
 	public void delObjet(Integer id){
 		objetsID.remove(id);
