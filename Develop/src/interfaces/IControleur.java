@@ -3,18 +3,21 @@ package interfaces;
 import java.io.IOException;
 import java.util.Collection;
 
+import javax.naming.NamingException;
+
+import exceptions.UninitializedLivreException;
 import exceptions.UnknownObjetException;
 public interface IControleur {
 
     // Livre
-    public void creerLivre (String nom, String chemin) ;
+    public void creerLivre (String nom, String chemin) throws IOException, NamingException ;
     public void ouvrirLivre (String chemin) throws IOException ;
-    public void sauvegarderLivre () throws IOException ;
-    public void supprimerLivre () ;
-    public void changerTitre(String nom);
+    public void sauvegarderLivre () throws IOException, UninitializedLivreException ;
+    public void supprimerLivre () throws IOException, UninitializedLivreException;
+    public void changerTitre(String nom) throws UninitializedLivreException;
 
     //Section
-    public Collection<Integer> getListeSection();
+    public Collection<Integer> getListeSection() throws UninitializedLivreException;
     public Collection<Integer> getListeObjetsSection();
     public Integer ajouterSection(String text); 
     public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens);
@@ -25,7 +28,7 @@ public interface IControleur {
     public Collection<Integer> getListeObjetsSection(Integer idSection);
     
     //Enchainement
-    public Collection<Integer> getListeEnchainement();
+    public Collection<Integer> getListeEnchainement() throws UninitializedLivreException;
     public Collection<Integer> getListeObjetsEnchainement();
     public Integer creerEnchainement(Integer idA, Integer idB, String text);
     public void modifierTextEnchainement(Integer id, String text);
