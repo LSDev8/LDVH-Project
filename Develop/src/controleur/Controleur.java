@@ -20,21 +20,24 @@ public class Controleur implements IControleur {
 	private IObjets objets;
 
 	public Controleur() {
-		livre = ComposantFactory.createLivre();
-		objets = ComposantFactory.createObjets();
+		livre = null;
+		objets = null;
 	}
 
 	@Override
 	public void creerLivre(String nom, String chemin) throws IOException,
 			NamingException {
-		// TODO Auto-generated method stub
-		livre.creerLivre(nom, chemin);
+		livre = ComposantFactory.createLivre(nom, chemin);
+		objets = ComposantFactory.createObjets();
 	}
 
 	@Override
 	public void ouvrirLivre(String chemin) throws IOException {
-		// TODO Auto-generated method stub
-		livre.ouvrirLivre(chemin);
+		livre = ComposantFactory.createLivre(chemin);
+		objets = ComposantFactory.createObjets();
+
+		// Retrouver les objets du livre ?
+		throw new IOException();
 	}
 
 	@Override

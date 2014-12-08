@@ -1,12 +1,18 @@
 package interfaces;
 
+import java.io.IOException;
+
 import objets.Objets;
 import livre.Livre;
 
 public class ComposantFactory {
 
-	public static ILivre createLivre() {
-		return new Livre();
+	public static ILivre createLivre(String nom, String chemin) throws IOException {
+		return new Livre(nom, chemin);
+	}
+
+	public static ILivre createLivre(String chemin) throws IOException {
+		return new Livre(chemin);
 	}
 	
 	public static IObjets createObjets() {
