@@ -7,8 +7,6 @@ import javax.naming.NamingException;
 
 import exceptions.UnknownObjetException;
 public interface ILivre {
-    public void creerLivre (String nom, String chemin) throws IOException, NamingException ;
-    public void ouvrirLivre (String chemin) throws IOException ;
     public void sauvegarderLivre () throws IOException ;
     public void supprimerLivre () ;
     public void setTitre(String nom);

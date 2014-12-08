@@ -32,10 +32,13 @@ public class Livre implements ILivre, Serializable {
 	private ObjectOutputStream out;
 	private ObjectInputStream in;
 
-	// Création d'un nouveau livre
-	public void creerLivre(String nom, String chemin) throws IOException,
-			NamingException {
-
+	/**
+	 * Creer Livre
+	 * @param nom
+	 * @param chemin
+	 * @throws IOException
+	 */
+	public Livre(String nom, String chemin) throws IOException{
 		this.chemin = chemin;
 		titre = nom;
 
@@ -54,14 +57,20 @@ public class Livre implements ILivre, Serializable {
 		sections = new ArrayList<>();
 		ench = new ArrayList<>();
 	}
+	
+
 
 	// Ouvre un livre qui existe déjà
-	public void creerLivre(String chemin) throws IOException {
-		ouvrirLivre(chemin);
+	static public ILivre creerLivre(String chemin) throws IOException {
+		return new Livre(chemin);
 	}
 
-	// TODO: + Rendre la classe sérializable
-	public void ouvrirLivre(String chemin) throws IOException {
+/**
+ * Ouvrir livre
+ * @param chemin
+ * @throws IOException
+ */
+	public Livre(String chemin) throws IOException {
 		FileInputStream fileIN = new FileInputStream(chemin);
 		in = new ObjectInputStream(fileIN);
 
