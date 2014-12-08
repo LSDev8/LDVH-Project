@@ -202,8 +202,7 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public void supprimerObjetSection(Integer idSection, Integer idObjet)
-			throws UnknownObjetException {
+	public void supprimerObjetSection(Integer idSection, Integer idObjet) {
 		sections.get(idSection).removeObjet(idObjet);
 
 	}
@@ -226,7 +225,6 @@ public class Livre implements ILivre, Serializable {
 		ench.add(e);
 		id = ench.indexOf(e);
 		e.setID(id);
-		sections.get(idA).addEnch(id);
 		return id;
 	}
 
@@ -243,9 +241,7 @@ public class Livre implements ILivre, Serializable {
 
 	@Override
 	public void setSourceEnchainement(Integer idEnchainement, Integer idSource) {
-		sections.get(ench.get(idEnchainement).getIdSourceEnchainement()).delEnch(idEnchainement);
 		ench.get(idEnchainement).setSource(sections.get(idSource));
-		sections.get(idSource).addEnch(idEnchainement);
 
 	}
 
@@ -267,77 +263,31 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	public void supprimerSection(Integer id) {
-		ench.remove(id);
+		this.sections.remove(id);
 	}
 
-	/**
-	 * Cette méthode rend la liste des indices des Sections qui ne sont pas
-	 * atteignables. On part du principe que la section d'indice zéro est
-	 * toujours atteignable, c'est la section de départ
-	 * 
-	 * Ou pour résumer:
-	 * 
-	 * Johnny walks around, strutting along the lanes of Section and
-	 * Enchainement, finding those who don't belong, who never found their place
-	 * in the flow of the story. 
-	 * And then, he kills them. 
-	 * Just kidding... 
-	 * He just points his finger so that the Stasi may know who they are. What they
-	 * do with this informations is up to them. 
-	 * 
-	 * He's innocent. 
-	 * 
-	 * He swears.
-	 * 
-	 * @author 2900600
-	 * 
-	 * @param l
-	 *            Le livre à chercher
-	 * @return Le liste des indices des Sections non atteingnables
-	 */
-	public Collection<Integer> innaccessible() {
-		
-		Integer dest;
-		ILivre l = this;
-		//Indices des sections non accessibles
-		Collection<Integer> inaccessibles = l.getListeSection();
-		//Indices des sections que l'on est en train de parcourir
-		Collection<Integer> visites = new ArrayList<>();
-		
-		//Si la liste des sections est vide, on rend un ensemble vide
-		if(sections.size() == 0)
-			return (Collection<Integer>) new ArrayList<Integer>();
-		
-		//On considère toujours que la section zéro est accessible
-		inaccessibles.remove((Integer) 0);
-		visites.add((Integer) 0);
-
-		//Tant qu'une sections reste à visiter
-		while(visites.size() > 0){
-			//pour le premier membre de la liste
-			for(Integer i : visites){
-				//on le supprime de la liste
-				visites.remove(i);
-				//Et des sections non accessibles
-				inaccessibles.remove(i);
-				//Pour chacune de ces sections cibles
-				for(Integer s : sections.get(i).getListeEnch()){
-					dest = sections.get(s).getIdDestinationEnchainement();
-					//Si elles sont encore dans la liste des inaccessibles
-					if(inaccessibles.contains(dest))
-						//On prévoit de les visiter
-						visites.add(dest);
-				}
-
-			}
-		}
-
-
-
-
-
-		
-		return inaccessibles;
-
+	@Override
+	public void supprimerEnchainement(Integer id) {
+		this.ench.remove(id);
 	}
+
+	@Override
+	public Integer getIdSourceEnchainement(Integer enchId) {
+		for(Enchainement e:this.ench)
+			if(e.getID()==enchId)
+				return e.getSource().getID();
+		
+		return null;
+	}
+
+	@Override
+	public Integer getIdDestEnchainement(Integer enchId) {
+		for(Enchainement e:this.ench)
+			if(e.getID()==enchId)
+				return e.getDest().getID();
+		
+		return null;
+	}
+	
+	
 }

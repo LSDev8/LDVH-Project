@@ -11,12 +11,7 @@ public class Section {
 	private Integer id;
 	private String text;
 	private ArrayList<Integer> idObjets;
-	/**
-	 * La liste des echainements du livre dont cette section est la source
-	 * Pour pouvoir plus facilement parcourir le graphe
-	 */
-	private ArrayList<Integer> idEnchSrc;
- 
+
 	public Section(Integer n) {
 		idObjets = new ArrayList<>();
 		id = n;
@@ -39,18 +34,8 @@ public class Section {
 	public String getText() {
 		return text;
 	}
-	
-	public void addEnch(Integer id){
-		idEnchSrc.add(id);
-	}
-	public void delEnch(Integer id){
-		idEnchSrc.remove(id);
-	}
-	public Collection<Integer> getListeEnch(){
-		return (Collection) idEnchSrc.clone();
-	}
 
-	public void removeObjet(Integer idObj) throws UnknownObjetException {
+	public void removeObjet(Integer idObj) {
 		idObjets.remove(idObj);
 	}
 
