@@ -15,10 +15,11 @@ public class Enchainement {
 		source = S;
 		dest = D;
 		this.text = text;
+		this.objetsID = new ArrayList<>();
 	}
 
 	public Collection<Integer> getObjets() {
-		return null;
+		return this.objetsID;
 	}
 	
 	//Nécessaire pour respecter l'unicité des IDs malgré les 
@@ -42,7 +43,6 @@ public class Enchainement {
 	public void addObjet(Integer id){
 		objetsID.add(id);
 	}
-
 	
 	public void delObjet(Integer id){
 		objetsID.remove(id);
@@ -53,5 +53,13 @@ public class Enchainement {
 	}
 	public void setDestination(Section D){
 		dest = D;
+	}
+
+	public Section getSource() {
+		return source;
+	}
+
+	public Section getDest() {
+		return dest;
 	}
 }
