@@ -16,7 +16,7 @@ public class Section {
 	 * Pour pouvoir plus facilement parcourir le graphe
 	 */
 	private ArrayList<Integer> idEnchSrc;
- 
+  
 	public Section(Integer n) {
 		idObjets = new ArrayList<>();
 		id = n;
