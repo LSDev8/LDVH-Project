@@ -58,13 +58,6 @@ public class Livre implements ILivre, Serializable {
 		ench = new ArrayList<>();
 	}
 	
-
-
-	// Ouvre un livre qui existe déjà
-	static public ILivre creerLivre(String chemin) throws IOException {
-		return new Livre(chemin);
-	}
-
 /**
  * Ouvrir livre
  * @param chemin
