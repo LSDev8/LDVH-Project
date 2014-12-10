@@ -11,6 +11,7 @@ public interface ILivre {
     public void supprimerLivre () ;
     public void setTitre(String nom);
     public String getTitre();
+    public Collection<Integer> analyserGraphe();
     
     public Collection<Integer> getListeSection();
     public Collection<Integer> getListeEnchainement();

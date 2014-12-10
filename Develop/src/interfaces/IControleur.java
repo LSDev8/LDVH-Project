@@ -15,6 +15,7 @@ public interface IControleur {
     public void sauvegarderLivre () throws IOException, UninitializedLivreException ;
     public void supprimerLivre () throws IOException, UninitializedLivreException;
     public void changerTitre(String nom) throws UninitializedLivreException;
+    public Collection<Integer> analyserGraphe() throws UninitializedLivreException;
 
     //Section
     public Collection<Integer> getListeSection() throws UninitializedLivreException;
