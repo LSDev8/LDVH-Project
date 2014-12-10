@@ -335,13 +335,14 @@ public class Livre implements ILivre, Serializable {
 					dest = sections.get(s).getIdDestinationEnchainement();					
 					//Si elles sont encore dans la liste des inaccessibles
 					if(inaccessibles.contains(dest))
+					{
 						//On prévoit de les visiter
 						visites.add(dest);
+					}	
 				}
-
 			}
 		}
-
+	}
 
 
 	@Override
