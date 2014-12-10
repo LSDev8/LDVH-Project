@@ -46,7 +46,7 @@ public class Section {
 	public void delEnch(Integer id){
 		idEnchSrc.remove(id);
 	}
-	public Collection<Integer> getEnchIDList(Integer id){
+	public Collection<Integer> getEnchIDList(){
 		return (Collection<Integer>) idEnchSrc.clone();
 	}
 
