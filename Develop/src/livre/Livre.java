@@ -184,7 +184,7 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public Integer ajouterSectionAvecEnsemble(String text,
+	public Integer ajouterSectionAvecEnsembleObjets(String text,
 			Collection<Integer> ens) {
 		Section s = sections.get(ajouterSection(text));
 		for (Integer i : ens)

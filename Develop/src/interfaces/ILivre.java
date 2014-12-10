@@ -21,7 +21,7 @@ public interface ILivre {
 
     //Ret l'id de la section
     public Integer ajouterSection(String text); 
-    public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens);
+    public Integer ajouterSectionAvecEnsembleObjets(String text, Collection<Integer> ens);
     public void modifierTextSection(Integer id, String text);
     public void ajouterObjetSection(Integer idSection, Integer idObjet);
     public void supprimerObjetSection(Integer idSection, Integer idObjet) throws UnknownObjetException;

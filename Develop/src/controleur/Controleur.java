@@ -89,7 +89,7 @@ public class Controleur implements IControleur {
 	@Override
 	public Integer ajouterSectionAvecEnsemble(String text,
 			Collection<Integer> ens) throws UninitializedLivreException {
-		return this.getLivre().ajouterSectionAvecEnsemble(text, ens);
+		return this.getLivre().ajouterSectionAvecEnsembleObjets(text, ens);
 	}
 
 	@Override

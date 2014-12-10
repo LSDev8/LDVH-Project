@@ -210,7 +210,7 @@ public class LDVHIHM {
 
     private void ajouterSectionAvecEnsemble(String cmd) {
 	String[] args = cmd.split(" +");
-	Integer retour = ctrl.ajouterSectionAvecEnsemble(args[1], args[2]);
+	Integer retour = ctrl.ajouterSectionAvecEnsembleObjets(args[1], args[2]);
     }
 
     private void modifierTextSection(String cmd) {
