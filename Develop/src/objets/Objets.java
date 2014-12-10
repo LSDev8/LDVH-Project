@@ -15,7 +15,7 @@ public class Objets extends ArrayList<Objet> implements IObjets {
 
 	public void createObjets(IObjets o) {
 		if (this == o)
-		    throw new InvalidArgumentException("Copie récursive non autorisée");
+		    throw new IllegalArgumentException("Copie récursive non autorisée");
 		for (Objet e : o)
 			ajouterObjet(e.getNom());
 	}
