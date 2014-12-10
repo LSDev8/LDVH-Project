@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 import interfaces.IObjets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
 
 import javax.naming.NamingException;
 
@@ -34,7 +36,22 @@ public class SectionsTest {
 
 	@Test
 	public void testAjouterSectionEns() {
-		fail("A faire");
+		/*
+		 * Teste de manière fictive l'ajout d'un ensemble d'objets, on ne
+		 * manipule que des index, qui ici ne correspondent pas à des Objets
+		 * ayant été créés.
+		 */
+		Random r = new Random();
+		ArrayList<Integer> listObjets = new ArrayList<>();
+		Integer id;
+		
+		listObjets.add(r.nextInt());
+		listObjets.add(r.nextInt());
+		listObjets.add(r.nextInt());
+		id = l.ajouterSectionAvecEnsembleObjets("Test Objets", listObjets);
+		
+		//On vérifie que les ajouts sont effectifs
+		assert(listObjets.equals(l.getListeObjetsSection(id)));
 	}
 
 	@Test
