@@ -30,5 +30,15 @@ public class Objet {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	/**
+	 * Pour tirer parti des fonctions de ArrayList dont Objets hérite
+	 * @param e L'objet à comparer
+	 * @return Vrai si les deux objets sont identiques
+	 */
+	public boolean equals(Objet e){
+		return e.getNom().equals(e.getNom());
+		
+	}
 
 }
