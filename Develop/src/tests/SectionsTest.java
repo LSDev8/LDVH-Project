@@ -45,44 +45,6 @@ public class SectionsTest {
 	}
 
 	@Test
-	public void testAjouterObjetSection() {
-		final String texteSect = "Titre section";
-		final String nomObj = "clef";
-		Integer idSect, idObj;
-		Collection<Integer> objsSect;
-		IObjets o;
-
-		o = new Objets();
-		idObj = o.ajouterObjet(nomObj);
-
-		idSect = this.l.ajouterSection(texteSect);
-
-		this.l.ajouterObjetSection(idSect, idObj);
-		objsSect = this.l.getListeObjetsSection(idSect);
-
-		assert (objsSect.size() == 1);
-		assert (objsSect.contains(idObj));
-	}
-
-	@Test
-	public void testSupprimerObjetSection() {
-		final String texteSect = "Titre section";
-		final String nomObj = "clef";
-		Integer idSect, idObj;
-		IObjets o;
-
-		o = new Objets();
-		idObj = o.ajouterObjet(nomObj);
-
-		idSect = this.l.ajouterSection(texteSect);
-
-		this.l.ajouterObjetSection(idSect, idObj);
-		this.l.supprimerObjetSection(idSect, idObj);
-
-		assert (this.l.getListeObjetsSection(idSect).size() == 0);
-	}
-
-	@Test
 	public void testSupprimerSection() {
 		final String texteSect = "Titre section";
 
@@ -96,8 +58,4 @@ public class SectionsTest {
 		assert(l.getTextSection(idSection) == "Une page");
 	}
 
-	@Test
-	public void testGetListeObjetsSection() {
-		fail("A faire");
-	}
 }

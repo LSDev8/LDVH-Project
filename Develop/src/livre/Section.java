@@ -15,7 +15,7 @@ public class Section {
 	 * La liste des echainements du livre dont cette section est la source
 	 * Pour pouvoir plus facilement parcourir le graphe
 	 */
-	private ArrayList<Integer> idEnchSrc;
+	private ArrayList<Integer> idEnchSrc = new ArrayList<>();
   
 	public Section(Integer n) {
 		idObjets = new ArrayList<>();
