@@ -3,6 +3,7 @@ package interfaces;
 import java.io.IOException;
 
 import controleur.Controleur;
+import export.Export;
 import objets.Objets;
 import livre.Livre;
 
@@ -22,6 +23,10 @@ public class ComposantFactory {
 
 	public static IControleur createControleur() {
 		return new Controleur();
+	}
+
+	public static IExport createExport() {
+		return new Export();
 	}
 
 	
