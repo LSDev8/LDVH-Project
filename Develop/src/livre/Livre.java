@@ -204,9 +204,12 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public void supprimerObjetSection(Integer idSection, Integer idObjet) {
-		sections.get(idSection).removeObjet(idObjet);
-
+	public void supprimerObjetSection(Integer idSection, Integer idObjet) throws UnknownObjetException {
+		try{
+			sections.get(idSection).removeObjet(idObjet);
+		} catch(IndexOutOfBoundsException e){
+			throw new UnknownObjetException();
+		}
 	}
 
 	@Override

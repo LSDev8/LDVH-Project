@@ -11,6 +11,8 @@ import objets.Objets;
 import org.junit.Before;
 import org.junit.Test;
 
+import exceptions.UnknownObjetException;
+
 public class testIntegration {
 
 	private Livre l;
@@ -32,10 +34,10 @@ public class testIntegration {
 		o = new Objets();
 		idObj = o.ajouterObjet(nomObj);
 
-		idSect = this.l.ajouterSection(texteSect);
+		idSect = l.ajouterSection(texteSect);
 
-		this.l.ajouterObjetSection(idSect, idObj);
-		objsSect = this.l.getListeObjetsSection(idSect);
+		l.ajouterObjetSection(idSect, idObj);
+		objsSect = l.getListeObjetsSection(idSect);
 
 		assert (objsSect.size() == 1);
 		assert (objsSect.contains(idObj));
@@ -51,31 +53,49 @@ public class testIntegration {
 		o = new Objets();
 		idObj = o.ajouterObjet(nomObj);
 
-		idSect = this.l.ajouterSection(texteSect);
+		idSect = l.ajouterSection(texteSect);
 
-		this.l.ajouterObjetSection(idSect, idObj);
-		this.l.supprimerObjetSection(idSect, idObj);
+		l.ajouterObjetSection(idSect, idObj);
 
-		assert (this.l.getListeObjetsSection(idSect).size() == 0);
+		assert (l.getListeObjetsSection(idSect).size() == 1);
+
+		try {
+			l.supprimerObjetSection(idSect, idObj);
+		} catch (UnknownObjetException e1) {
+			assert (false);
+		}
+
+		assert (l.getListeObjetsSection(idSect).size() == 0);
+
+		try {
+			l.supprimerObjetSection(idSect, idObj);
+			// Si la suppression fonctionne correctement, on ne doit pas
+			// atteindre ce point
+			assert (false);
+		} catch (UnknownObjetException e) {
+			//L'exception prévue a été lancée
+			assert (true);
+		}
+
 	}
 
 	@Test
 	public void testGetListeObjetsSection() {
 		fail("A faire");
 	}
-	
+
 	@Test
-	public void testGetListeObjetsEnchainement(){
+	public void testGetListeObjetsEnchainement() {
 		fail("A faire");
 	}
-		
+
 	@Test
-	public void testAjouterObjetEnchainement(){
+	public void testAjouterObjetEnchainement() {
 		fail("A faire");
 	}
-	
+
 	@Test
-	public void testSupprimerObjetEnchainement(){
+	public void testSupprimerObjetEnchainement() {
 		fail("A faire");
 	}
 }
