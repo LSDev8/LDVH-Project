@@ -71,13 +71,13 @@ public class Controleur implements IControleur {
 	@Override
 	public Collection<Integer> getListeObjetsEnchainement()
 			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsEnchainement();
+		return this.getLivre().getListeObjetsTousEnchainements();
 	}
 
 	@Override
 	public Collection<Integer> getListeObjetsSection()
 			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsSection();
+		return this.getLivre().getListeObjetsToutesSections();
 	}
 
 	@Override

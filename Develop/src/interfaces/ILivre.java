@@ -15,8 +15,8 @@ public interface ILivre {
     
     public Collection<Integer> getListeSection();
     public Collection<Integer> getListeEnchainement();
-    public Collection<Integer> getListeObjetsEnchainement();
-    public Collection<Integer> getListeObjetsSection();
+    public Collection<Integer> getListeObjetsTousEnchainements();
+    public Collection<Integer> getListeObjetsToutesSections();
 
     //Section
 
@@ -44,6 +44,7 @@ public interface ILivre {
     public void supprimerObjetEnchainement(Integer idSection, Integer idObjet);
     public Integer getIdSourceEnchainement(Integer enchId);
     public Integer getIdDestEnchainement(Integer enchId);
+    public Collection<Integer> getListeObjetsEnch(Integer id);
 
     
    

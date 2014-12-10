@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import interfaces.IObjets;
 
 import java.util.Collection;
+import java.util.Random;
 
 import livre.Livre;
 import objets.Objets;
@@ -80,22 +81,29 @@ public class testIntegration {
 	}
 
 	@Test
-	public void testGetListeObjetsSection() {
-		fail("A faire");
-	}
+	public void testAjouterSupprimerListerObjetEnchainement() {
+		Random r = new Random();
+		Integer idA, idB, idEnch;
+		Integer[] liste = new Integer[5];
+		
+		//Encore une fois, test avec des objets bidons
+		for(Integer e : liste)
+			e = r.nextInt();
+		
+		idA = l.ajouterSection("Section source");
+		idB = l.ajouterSection("Section destination");
+		idEnch = l.creerEnchainement(idA, idB, "Ench de test");
 
-	@Test
-	public void testGetListeObjetsEnchainement() {
-		fail("A faire");
-	}
-
-	@Test
-	public void testAjouterObjetEnchainement() {
-		fail("A faire");
-	}
-
-	@Test
-	public void testSupprimerObjetEnchainement() {
-		fail("A faire");
+		for(Integer e : liste)
+			l.ajouterObjetEnchainement(idEnch, e);
+		
+		assert(l.getListeObjetsEnch(idEnch).equals(liste));
+		
+		l.supprimerObjetEnchainement(idEnch, liste[1]);
+		
+		assertFalse(l.getListeObjetsEnch(idEnch).equals(liste));
+		assert(l.getListeObjetsEnch(idEnch).size() == 4);
+		
+		
 	}
 }

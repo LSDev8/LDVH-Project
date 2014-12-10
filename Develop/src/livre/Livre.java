@@ -153,7 +153,7 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public Collection<Integer> getListeObjetsEnchainement() {
+	public Collection<Integer> getListeObjetsTousEnchainements() {
 		Collection<Integer> it = new ArrayList<>();
 
 		for (Enchainement e : ench)
@@ -163,7 +163,7 @@ public class Livre implements ILivre, Serializable {
 	}
 
 	@Override
-	public Collection<Integer> getListeObjetsSection() {
+	public Collection<Integer> getListeObjetsToutesSections() {
 		Collection<Integer> it = new ArrayList<>();
 
 		for (Section e : sections)
@@ -308,7 +308,7 @@ public class Livre implements ILivre, Serializable {
 	 * @param l Le livre à chercher
 	 * @return La liste des indices des Sections non atteingnables
 	 */
-	public Collection<Integer> innaccessible() {
+	public Collection<Integer> analyserGraphe() {
 		
 		Integer dest;
 		ILivre l = this;
@@ -365,6 +365,12 @@ public class Livre implements ILivre, Serializable {
 				return e.getDest().getID();
 		
 		return null;
+	}
+
+
+	@Override
+	public Collection<Integer> getListeObjetsEnch(Integer id) {
+		return ench.get(id).getObjets();
 	}
 	
 	
