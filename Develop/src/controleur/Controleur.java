@@ -71,13 +71,13 @@ public class Controleur implements IControleur {
 	@Override
 	public Collection<Integer> getListeObjetsEnchainement()
 			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsTousEnchainements();
+		return this.getLivre().getListeObjetsEnchainement();
 	}
 
 	@Override
 	public Collection<Integer> getListeObjetsSection()
 			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsToutesSections();
+		return this.getLivre().getListeObjetsSection();
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class Controleur implements IControleur {
 	@Override
 	public Integer ajouterSectionAvecEnsemble(String text,
 			Collection<Integer> ens) throws UninitializedLivreException {
-		return this.getLivre().ajouterSectionAvecEnsembleObjets(text, ens);
+		return this.getLivre().ajouterSectionAvecEnsemble(text, ens);
 	}
 
 	@Override
