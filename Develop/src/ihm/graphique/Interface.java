@@ -1,4 +1,4 @@
-
+package ihm.graphique;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -101,12 +101,12 @@ public class Interface extends JFrame {
 		menu.add(chargerButton);
 		
 		saveButton = new JButton("");
-		saveButton.setIcon(new ImageIcon("save.gif"));
+		saveButton.setIcon(new ImageIcon(this.getClass().getResource("/ihm/images/save.gif")));
 		saveButton.setBounds(55, 80, 50, 40);
 		menu.add(saveButton);
 		
 		deleteButton = new JButton("");
-		deleteButton.setIcon(new ImageIcon("cross.jpg"));
+		deleteButton.setIcon(new ImageIcon(this.getClass().getResource("/ihm/images/cross.jpg")));
 		deleteButton.setBounds(125, 80, 50, 40);
 		menu.add(deleteButton);
 		
