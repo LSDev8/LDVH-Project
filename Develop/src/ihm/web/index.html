@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Le livre dont vous êtes le héros !</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+
+            <div id="gestion-book">
+                 <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Créer
+                </button>
+
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Charger
+                </button>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                     Sections
+                    <span class="caret"></span>
+                </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 1</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 2</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 3</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 4</a></li>
+                  </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                     Enchainements
+                    <span class="caret"></span>
+                </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 1 à Section 2</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 3 à Section 4</a></li>
+		    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Section 2 à Section 3</a></li>
+                  </ul>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                     Objets
+                    <span class="caret"></span>
+                </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Torche</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Épée</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Clé</a></li>
+                    <!-- Le colonel Moutarde dans le living room avec le --><li role="presentation"><a role="menuitem" tabindex="-1" href="#">Chandelier</a></li>
+                  </ul>
+            </div>
+            <div id="action-book">
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> Générer graphe
+                </button>
+
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> Analyser graphe
+                </button>
+
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span> Générer html
+                </button>
+            </div>
+       
+            <div id="save-quit">
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> Sauvegarder
+                </button>
+
+                <button type="button" class="btn btn-default btn-lg">
+                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Quitter
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Mon livre !</h1>
+                       <p>Bouton pour collapse la nav ci-dessous, je ne sais pas si t'en auras une utilité mais bon, au cas ou !</p>
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Bouton magique</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+   
+    
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
