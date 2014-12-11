@@ -1,0 +1,72 @@
+creerLivre
+monSuperLivre
+.
+creerSection
+Vous entrez dans le dongeon et appercevez immédiatement 50 PO qui trainent sur le sol. Ce qui vous choque ensuite c'est que 2 portes s'offrent à vous. A peine arrivés et déjà un choix s'offre à vous
+creerSection
+Vous passez par la porte de gauche et tombez nez à nez avec un troll. Un bien gros.
+creerSection
+Vous avez choisi de combatte. Il se trouve que vous n'avez pas de talent particulier pour le combat. Arès quelques minutes à courrir devant le troll, vous finissez par vous faire attraper et mourrez presque immédiatement de vos blessures
+creerSection
+Vous avez choisi de fuir. Il se trouve que le troll cours plus vite que vous. Vous finissez par vous faire attraper par le troll et mourrez presque immédiatement de vos blessures
+creerSection
+Vous avez choisi la seconde porte et arrivez dans une pièce vide. Impatient de vivre une belle aventure, vous ramassez l'épée qui traine par terre et passez par la seule porte qui est devant vous
+creerSection
+Vous tombez nez à nez avec un troll
+creerSection
+Vous avez choisi de combattre sans votre épée. Bien que courageux, ce n'était pas très malin. Le troll vous attrape et vous tue sur le coup
+creerSection
+Vous avez choisi de combattre avec votre épée, C'était une bonne idée, vous mettez un coup là où il faut et le troll se retrouve par terre sans avoir son mot à dire. En tombant, le troll lâche un sac de 10 000 PO
+creerSection
+Vous arrivez dans un endroit étonnemment encoleillé. C'est la sortie
+creerObjet
+50 PO
+ajouterObjetSection
+0
+0
+creerObjet
+10 000 PO
+creerObjet
+Épée
+ajouterObjetSection
+4
+2
+creerEnchainement
+0
+1
+Soit vous passez par la première porte
+creerEnchainement
+0
+4
+Soit vous passez par la seconde porte
+creerEnchainement
+1
+2
+Soit vous choisissez de combattre
+creerEnchainement
+1
+3
+Soit vous choisissez de fuir
+creerEnchainement
+4
+5
+Vous avancez
+creerEnchainement
+5
+7
+Soit vous décidez de combattre avec votre épée
+creerEnchainement
+5
+6
+Soit vous décidez de combattre sans votre épée
+ajouterObjetEnchainement
+5
+2
+creerEnchainement
+7
+8
+Vous passez au couloir suivant
+ajouterObjetSection
+7
+1
+

@@ -1,0 +1,333 @@
+orlin@orlin-HD:~/workspace/IL/LDVHCode$ java -jar LDVH.jar
+-- Commandes Système
+listerCommandes
+quit
+
+-- Gestion livre sur le disque
+creerLivre nom chemin
+ouvrirLivre chemin
+sauvegarderLivre
+supprimerLivre
+
+-- Gestion du contenu du livre
+changerTitreLivre titre
+analyserGraphe
+
+-- Gestion des sections
+creerSection texte
+creerSectionAvecEnsemble texte idObj1 idObj2 ...
+modifierTexteSection idSection texte
+ajouterObjetSection idSection idObjet
+afficherListeSections
+afficherSection id
+afficherTexteSection idSection
+afficherListeObjetsSection idSection
+supprimerObjetSection idSection idObjet
+
+-- Gestion des enchainements
+creerEnchainement idSectionSrc idSectionDst texte
+setSourceEnchainement idEnchainement idSection
+setDestinationEnchainement idEnchainement idSection
+modifierTexteEnchainement idEnchainement texte
+ajouterObjetEnchainement idEnchainement idObjet
+afficherListeEnchainements
+afficherListeObjetsEnchainement idEnchainement
+afficherTexteEnchainement idEnchainement
+afficherSourceEnchainement idEnchainement
+afficherDestinationEnchainement idEnchainement
+supprimerObjetEnchainement idEnchainement idObjet
+
+-- Gestion des objets
+creerObjet nom
+afficherNomObjet idObjet
+setNomObjet idObjet nom
+supprimerObjet idObjet
+
+
+
+
+>>> creerLivre
+nom : monSuperLivre
+chemin : .
+-----
+
+
+
+>>> creerSection
+texte : Vous entrez dans le dongeon et appercevez immédiatement 50 PO qui trainent sur le sol. Ce qui vous choque ensuite c'est que 2 portes s'offrent à vous. A peine arrivés et déjà un choix s'offre à vous
+ ==> 0
+-----
+
+
+
+>>> creerSection
+texte : Vous passez par la porte de gauche et tombez nez à nez avec un troll. Un bien gros.
+ ==> 1
+-----
+
+
+
+>>> creerSection
+texte : Vous avez choisi de combatte. Il se trouve que vous n'avez pas de talent particulier pour le combat. Arès quelques minutes à courrir devant le troll, vous finissez par vous faire attraper et mourrez presque immédiatement de vos blessures
+ ==> 2
+-----
+
+
+
+>>> creerSection
+texte : Vous avez choisi de fuir. Il se trouve que le troll cours plus vite que vous. Vous finissez par vous faire attraper par le troll et mourrez presque immédiatement de vos blessures
+ ==> 3
+-----
+
+
+
+>>> creerSection
+texte : Vous avez choisi la seconde porte et arrivez dans une pièce vide. Impatient de vivre une belle aventure, vous ramassez l'épée qui traine par terre et passez par la seule porte qui est devant vous
+ ==> 4
+-----
+
+
+
+>>> creerSection
+texte : Vous tombez nez à nez avec un troll
+ ==> 5
+-----
+
+
+
+>>> creerSection
+texte : Vous avez choisi de combattre sans votre épée. Bien que courageux, ce n'était pas très malin. Le troll vous attrape et vous tue sur le coup
+ ==> 6
+-----
+
+
+
+>>> creerSection
+texte : Vous avez choisi de combattre avec votre épée, C'était une bonne idée, vous mettez un coup là où il faut et le troll se retrouve par terre sans avoir son mot à dire. En tombant, le troll lâche un sac de 10 000 PO
+ ==> 7
+-----
+
+
+
+>>> creerSection
+texte : Vous arrivez dans un endroit étonnemment encoleillé. C'est la sortie
+ ==> 8
+-----
+
+
+
+>>> creerObjet
+nom : 50 PO
+ ==> 0
+-----
+
+
+
+>>> ajouterObjetSection
+idSection : 0
+idObjet : 0
+-----
+
+
+
+>>> creerObjet
+nom : 10 000 PO
+ ==> 1
+-----
+
+
+
+>>> creerObjet
+nom : Épée
+ ==> 2
+-----
+
+
+
+>>> ajouterObjetSection
+idSection : 4
+idObjet : 2
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 0
+idSectionDst : 1
+texte : Soit vous passez par la première porte
+ ==> 0
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 0
+idSectionDst : 4
+texte : Soit vous passez par la seconde porte
+ ==> 1
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 1
+idSectionDst : 2
+texte : Soit vous choisissez de combattre
+ ==> 2
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 1
+idSectionDst : 3
+texte : Soit vous choisissez de fuir
+ ==> 3
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 4
+idSectionDst : 5
+texte : Vous avancez
+ ==> 4
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 5
+idSectionDst : 7
+texte : Soit vous décidez de combattre avec votre épée
+ ==> 5
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 5
+idSectionDst : 6
+texte : Soit vous décidez de combattre sans votre épée
+ ==> 6
+-----
+
+
+
+>>> ajouterObjetEnchainement
+idEnchainement : 5
+idObjet : 2
+-----
+
+
+
+>>> creerEnchainement
+idSectionSrc : 7
+idSectionDst : 8
+texte : Vous passez au couloir suivant
+ ==> 7
+-----
+
+
+
+>>> ajouterObjetSection
+idSection : 7
+idObjet : 1
+-----
+
+
+
+>>> afficherListeSections
+Id : 0
+Texte : Vous entrez dans le dongeon et appercevez immédiatement 50 PO qui trainent sur le sol. Ce qui vous choque ensuite c'est que 2 portes s'offrent à vous. A peine arrivés et déjà un choix s'offre à vous
+Objets : 
+ - 50 PO
+Enchainements : 
+ - Soit vous passez par la première porte
+ - Soit vous passez par la seconde porte
+Id : 1
+Texte : Vous passez par la porte de gauche et tombez nez à nez avec un troll. Un bien gros.
+Objets : 
+Enchainements : 
+ - Soit vous choisissez de combattre
+ - Soit vous choisissez de fuir
+Id : 2
+Texte : Vous avez choisi de combatte. Il se trouve que vous n'avez pas de talent particulier pour le combat. Arès quelques minutes à courrir devant le troll, vous finissez par vous faire attraper et mourrez presque immédiatement de vos blessures
+Objets : 
+Enchainements : 
+Id : 3
+Texte : Vous avez choisi de fuir. Il se trouve que le troll cours plus vite que vous. Vous finissez par vous faire attraper par le troll et mourrez presque immédiatement de vos blessures
+Objets : 
+Enchainements : 
+Id : 4
+Texte : Vous avez choisi la seconde porte et arrivez dans une pièce vide. Impatient de vivre une belle aventure, vous ramassez l'épée qui traine par terre et passez par la seule porte qui est devant vous
+Objets : 
+ - Épée
+Enchainements : 
+ - Vous avancez
+Id : 5
+Texte : Vous tombez nez à nez avec un troll
+Objets : 
+Enchainements : 
+ - Soit vous décidez de combattre avec votre épée
+ - Soit vous décidez de combattre sans votre épée
+Id : 6
+Texte : Vous avez choisi de combattre sans votre épée. Bien que courageux, ce n'était pas très malin. Le troll vous attrape et vous tue sur le coup
+Objets : 
+Enchainements : 
+Id : 7
+Texte : Vous avez choisi de combattre avec votre épée, C'était une bonne idée, vous mettez un coup là où il faut et le troll se retrouve par terre sans avoir son mot à dire. En tombant, le troll lâche un sac de 10 000 PO
+Objets : 
+ - 10 000 PO
+Enchainements : 
+ - Vous passez au couloir suivant
+Id : 8
+Texte : Vous arrivez dans un endroit étonnemment encoleillé. C'est la sortie
+Objets : 
+Enchainements : 
+-----
+
+
+
+>>> afficherListeEnchainements
+Soit vous passez par la première porte
+
+Soit vous passez par la seconde porte
+
+Soit vous choisissez de combattre
+
+Soit vous choisissez de fuir
+
+Vous avancez
+
+Soit vous décidez de combattre avec votre épée
+
+Soit vous décidez de combattre sans votre épée
+
+Vous passez au couloir suivant
+
+-----
+
+
+
+>>> afficherTexteEnchainement
+idEnchainement : 1
+Soit vous passez par la seconde porte
+
+-----
+
+
+
+>>> sauvegarderLivre
+Erreur : écriture sur le disque impossible
+-----
+
+
+
+>>> 
+Erreur commande inconnue
+
+
+
+>>> quit
+orlin@orlin-HD:~/workspace/IL/LDVHCode$ 

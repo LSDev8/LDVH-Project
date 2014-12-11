@@ -1,0 +1,105 @@
+-- Commandes Système
+listerCommandes
+quit
+
+-- Gestion livre sur le disque
+creerLivre nom chemin
+ouvrirLivre chemin
+sauvegarderLivre
+supprimerLivre
+
+-- Gestion du contenu du livre
+changerTitreLivre titre
+analyserGraphe
+
+-- Gestion des sections
+creerSection texte
+creerSectionAvecEnsemble texte idObj1 idObj2 ...
+modifierTexteSection idSection texte
+ajouterObjetSection idSection idObjet
+afficherListeSections
+afficherSection id
+afficherTexteSection idSection
+afficherListeObjetsSection idSection
+supprimerObjetSection idSection idObjet
+
+-- Gestion des enchainements
+creerEnchainement idSectionSrc idSectionDst texte
+setSourceEnchainement idEnchainement idSection
+setDestinationEnchainement idEnchainement idSection
+modifierTexteEnchainement idEnchainement texte
+ajouterObjetEnchainement idEnchainement idObjet
+afficherListeEnchainements
+afficherListeObjetsEnchainement idEnchainement
+afficherTexteEnchainement idEnchainement
+afficherSourceEnchainement idEnchainement
+afficherDestinationEnchainement idEnchainement
+supprimerObjetEnchainement idEnchainement idObjet
+
+-- Gestion des objets
+creerObjet nom
+afficherNomObjet idObjet
+setNomObjet idObjet nom
+supprimerObjet idObjet
+
+
+creerLivre
+nom : 
+monSuperLivre
+chemin : 
+.
+-----
+creerSection
+texte : 
+Vous entrez dans le dongeon et voyez une grande porte au fond et 50 PO par terre
+ ==> 0
+-----
+creerSection
+texte : 
+Vous passez la porte et tombez nez à nez avec un troll. Vous mourrez sur le coup
+ ==> 1
+-----
+creerObjet
+nom : 
+50 PO
+ ==> 0
+-----
+creerEnchainement
+idSectionSrc : 
+0
+idSectionDst : 
+1
+texte : 
+Vous voulez passer par cette porte
+ ==> 0
+-----
+afficherSection
+id : 
+0
+Id : 0
+Texte : Vous entrez dans le dongeon et voyez une grande porte au fond et 50 PO par terre
+Objets : 
+Enchainements : 
+0 : Vous voulez passer par cette porte
+-----
+ajouterObjetSection
+idSection : 
+0
+idObjet : 
+0
+-----
+afficherObjets
+Erreur commande inconnue
+afficherListeObjets
+ - 50 PO
+-----
+afficherSection
+id : 
+0
+Id : 0
+Texte : Vous entrez dans le dongeon et voyez une grande porte au fond et 50 PO par terre
+Objets : 
+ - 50 PO
+Enchainements : 
+0 : Vous voulez passer par cette porte
+-----
