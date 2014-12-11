@@ -69,4 +69,5 @@ Vous passez au couloir suivant
 ajouterObjetSection
 7
 1
+quit
 
