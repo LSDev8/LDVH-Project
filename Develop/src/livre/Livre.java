@@ -42,7 +42,7 @@ public class Livre implements ILivre, Serializable {
 		this.chemin = chemin;
 		titre = nom;
 
-		File f = new File(chemin);
+		File f = new File(chemin + "/" + nom + ".ldvh");
 		try {
 			f.createNewFile();
 		} catch (Exception e) {

@@ -119,10 +119,7 @@ public class Controleur implements IControleur {
 	@Override
 	public Integer creerEnchainement(Integer idA, Integer idB, String text)
 			throws UninitializedLivreException {
-		if (livre == null)
-			throw new UninitializedLivreException("Livre non init");
-		// TODO Auto-generated method stub
-		return creerEnchainement(idA, idB, text);
+		return this.getLivre().creerEnchainement(idA, idB, text);
 	}
 
 	@Override

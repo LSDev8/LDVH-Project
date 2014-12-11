@@ -31,7 +31,7 @@ public class LDVHIHM {
 	private IControleur ctrl;
 	private Scanner scanner;
 
-	public static void main() {
+	public static void main(String[] args) {
 		LDVHIHM ihm = new LDVHIHM();
 		ihm.waitCommandes();
 	}
@@ -48,6 +48,7 @@ public class LDVHIHM {
 		listerCommandes();
 
 		do {
+			System.out.print("\n\n\n>>> ");
 			cmd = scanner.nextLine();
 			if (cmd.matches("^listerCommandes( .*)?$"))
 				listerCommandes();
@@ -120,40 +121,15 @@ public class LDVHIHM {
 	}
 
 	private void listerCommandes() {
-		System.out.println("Saisir seulement les commandes : l'interface "
-				+ "demandera ensuite de saisir les arguments\n\n"
-				+ " listerCommandes\n" + "creerLivre nom chemin\n"
-				+ "ouvrirLivre chemin\n" + "sauvegarderLivre\n"
-				+ "supprimerLivre\n" + "changerTitreLivre titre\n"
-				+ "afficherListeSections\n" + "afficherSection id\n"
-				+ "afficherTexteSection idSection\n"
-				+ "afficherListeObjetsSection idSection\n"
-				+ "afficherListeEnchainements\n"
-				+ "afficherListeObjetsEnchainement idEnchainement\n"
-				+ "afficherNomObjet idObjet\n" + "creerSection texte\n"
-				+ "creerSectionAvecEnsemble texte idObj1 idObj2 ...\n"
-				+ "modifiertexteSection idSection texte\n"
-				+ "ajouterObjetSection idSection idObjet\n"
-				+ "supprimerObjetSection idSection idObjet\n"
-				+ "creerEnchainement idSectionSrc idSectionDst texte\n"
-				+ "modifierTexteEnchainement idEnchainement texte\n"
-				+ "afficherTexteEnchainement idEnchainement\n"
-				+ "ajouterObjetEnchainement idEnchainement idObjet\n"
-				+ "setSourceEnchainement idEnchainement idSection\n"
-				+ "setDestinationEnchainement idEnchainement idSection\n"
-				+ "afficherSourceEnchainement idEnchainement\n"
-				+ "afficherDestinationEnchainement idEnchainement\n"
-				+ "supprimerObjetEnchainement idEnchainement idObjet\n"
-				+ "creerObjet nom\n" + "setNomObjet idObjet nom\n"
-				+ "supprimerObjet idObjet\n" + "analyserGraphe\n"
-				+ "quit\n\n\n");
+		System.out
+				.println("-- Commandes Système\nlisterCommandes\nquit\n\n-- Gestion livre sur le disque\ncreerLivre nom chemin\nouvrirLivre chemin\nsauvegarderLivre\nsupprimerLivre\n\n-- Gestion du contenu du livre\nchangerTitreLivre titre\nanalyserGraphe\n\n-- Gestion des sections\ncreerSection texte\ncreerSectionAvecEnsemble texte idObj1 idObj2 ...\nmodifierTexteSection idSection texte\najouterObjetSection idSection idObjet\nafficherListeSections\nafficherSection id\nafficherTexteSection idSection\nafficherListeObjetsSection idSection\nsupprimerObjetSection idSection idObjet\n\n-- Gestion des enchainements\ncreerEnchainement idSectionSrc idSectionDst texte\nsetSourceEnchainement idEnchainement idSection\nsetDestinationEnchainement idEnchainement idSection\nmodifierTexteEnchainement idEnchainement texte\najouterObjetEnchainement idEnchainement idObjet\nafficherListeEnchainements\nafficherListeObjetsEnchainement idEnchainement\nafficherTexteEnchainement idEnchainement\nafficherSourceEnchainement idEnchainement\nafficherDestinationEnchainement idEnchainement\nsupprimerObjetEnchainement idEnchainement idObjet\n\n-- Gestion des objets\ncreerObjet nom\nafficherNomObjet idObjet\nsetNomObjet idObjet nom\nsupprimerObjet idObjet\n");
 	}
 
 	private void creerLivre() {
 		String nom, chemin;
-		System.out.println("nom : ");
+		System.out.print("nom : ");
 		nom = scanner.nextLine();
-		System.out.println("chemin : ");
+		System.out.print("chemin : ");
 		chemin = scanner.nextLine();
 
 		try {
@@ -163,17 +139,19 @@ public class LDVHIHM {
 		} catch (NamingException e) {
 			System.out.println("Erreur : nom invalide");
 		}
+		System.out.println("-----");
 	}
 
 	private void ouvrirLivre() {
 		String chemin;
-		System.out.println("Chemin : ");
+		System.out.print("Chemin : ");
 		chemin = scanner.nextLine();
 		try {
 			ctrl.ouvrirLivre(chemin);
 		} catch (IOException e) {
 			System.out.println("Erreur : écriture sur le disque impossible");
 		}
+		System.out.println("-----");
 	}
 
 	private void sauvegarderLivre() {
@@ -184,6 +162,7 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void supprimerLivre() {
@@ -194,22 +173,24 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void changerTitreLivre() {
 		String titre;
-		System.out.println("Titre : ");
+		System.out.print("Titre : ");
 		titre = scanner.nextLine();
 		try {
 			ctrl.changerTitre(titre);
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void creerSection() {
 		String texte;
-		System.out.println("texte : ");
+		System.out.print("texte : ");
 		texte = scanner.nextLine();
 
 		try {
@@ -217,13 +198,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void modifierTexteSection() {
 		String idSection, text;
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
-		System.out.println("texte : ");
+		System.out.print("texte : ");
 		text = scanner.nextLine();
 
 		try {
@@ -231,13 +213,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void ajouterObjetSection() {
 		String idSection, idObjet;
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -246,13 +229,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void supprimerObjetSection() {
 		String idSection, idObjet;
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -263,11 +247,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherTexteSection() {
 		String idSection;
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
 
 		try {
@@ -276,14 +261,16 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherSection() {
 		String id;
-		System.out.println("id : ");
+		System.out.print("id : ");
 		id = scanner.nextLine();
 
 		afficherSection(Integer.parseInt(id));
+		System.out.println("-----");
 	}
 
 	private void afficherSection(Integer idSection) {
@@ -302,7 +289,7 @@ public class LDVHIHM {
 			System.out.println("Enchainements : ");
 			for (Integer idEnchainement : idEnchainements) {
 				if (ctrl.getSourceEnchainement(idEnchainement) == idSection)
-					System.out.println(idEnchainement + " : "
+					System.out.println(" - "
 							+ ctrl.getTexteEnchainement(idEnchainement));
 			}
 
@@ -323,12 +310,13 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 
 	}
 
 	private void afficherListeObjetsSection() {
 		String idSection;
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
 
 		try {
@@ -340,22 +328,24 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherListeEnchainements() {
 		try {
 			Collection<Integer> retour = ctrl.getListeEnchainement();
 			for (Integer idE : retour) {
-				System.out.println(ctrl.getTexteEnchainement(idE) + "\n");
+				System.out.println(idE + " : " + ctrl.getTexteEnchainement(idE));
 			}
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherListeObjetsEnchainement() {
 		String idEnchainement;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
 
 		try {
@@ -368,15 +358,16 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void creerEnchainement() {
 		String idSectionSrc, idSectionDst, texte;
-		System.out.println("idSectionSrc : ");
+		System.out.print("idSectionSrc : ");
 		idSectionSrc = scanner.nextLine();
-		System.out.println("idSectionDst : ");
+		System.out.print("idSectionDst : ");
 		idSectionDst = scanner.nextLine();
-		System.out.println("texte : ");
+		System.out.print("texte : ");
 		texte = scanner.nextLine();
 
 		try {
@@ -386,13 +377,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void modifierTexteEnchainement() {
 		String idEnchainement, texte;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
-		System.out.println("texte : ");
+		System.out.print("texte : ");
 		texte = scanner.nextLine();
 
 		try {
@@ -401,13 +393,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void ajouterObjetEnchainement() {
 		String idEnchainement, idObjet;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -416,13 +409,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void setSourceEnchainement() {
 		String idEnchainement, idSection;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
 
 		try {
@@ -431,13 +425,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void setDestinationEnchainement() {
 		String idEnchainement, idSection;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
-		System.out.println("idSection : ");
+		System.out.print("idSection : ");
 		idSection = scanner.nextLine();
 
 		try {
@@ -446,11 +441,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherSourceEnchainement() {
 		String idEnchainement;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
 
 		try {
@@ -459,11 +455,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherDestinationEnchainement() {
 		String idEnchainement;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
 
 		try {
@@ -472,11 +469,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherTexteEnchainement() {
 		String idEnchainement;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
 
 		try {
@@ -485,13 +483,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void supprimerObjetEnchainement() {
 		String idEnchainement, idObjet;
-		System.out.println("idEnchainement : ");
+		System.out.print("idEnchainement : ");
 		idEnchainement = scanner.nextLine();
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -500,22 +499,24 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherListeObjets() {
 		try {
 			Collection<Integer> retour = ctrl.getListeObjets();
 			for (Integer idObjet : retour) {
-				System.out.println(" - " + ctrl.getNomObjet(idObjet));
+				System.out.println(" - " + idObjet + " : " + ctrl.getNomObjet(idObjet));
 			}
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void creerObjet() {
 		String nom;
-		System.out.println("nom : ");
+		System.out.print("nom : ");
 		nom = scanner.nextLine();
 
 		try {
@@ -523,11 +524,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void afficherNomObjet() {
 		String idObjet;
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -536,13 +538,14 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void setNomObjet() {
 		String idObjet, nom;
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
-		System.out.println("nom : ");
+		System.out.print("nom : ");
 		nom = scanner.nextLine();
 
 		try {
@@ -550,11 +553,12 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void supprimerObjet() {
 		String idObjet;
-		System.out.println("idObjet : ");
+		System.out.print("idObjet : ");
 		idObjet = scanner.nextLine();
 
 		try {
@@ -562,6 +566,7 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 	private void analyserGraphe() {
@@ -573,6 +578,7 @@ public class LDVHIHM {
 		} catch (UninitializedLivreException e) {
 			System.out.println("Erreur : aucun livre ouvert");
 		}
+		System.out.println("-----");
 	}
 
 }
