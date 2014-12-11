@@ -12,6 +12,7 @@ import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.naming.NamingException;
 
@@ -315,7 +316,8 @@ public class Livre implements ILivre, Serializable {
 		//Indices des sections non accessibles
 		Collection<Integer> inaccessibles = l.getListeSection();
 		//Indices des sections que l'on est en train de parcourir
-		Collection<Integer> visites = new ArrayList<>();
+		//Table de Hachage pour éviter les doublons
+		Collection<Integer> visites = new HashSet<>();
 		Collection<Integer> aux;
 		
 		//Si la liste des sections est vide, on rend un ensemble vide
@@ -328,7 +330,9 @@ public class Livre implements ILivre, Serializable {
 
 		//Tant qu'une sections reste à visiter
 		while(visites.size() > 0){
-			aux = new ArrayList<>();
+			//Vu qu'on ne doit pas modifier une collection sur laquelle on
+			// itère, variable auxiliaire: 
+			aux = new HashSet<>();
 			aux.addAll(visites);
 			//pour le premier membre de la liste
 			for(Integer i : visites){
@@ -347,6 +351,7 @@ public class Livre implements ILivre, Serializable {
 					}	
 				}
 			}
+			//On récupère la nouvelle liste pour la prochaine itération
 			visites = aux;
 		}
 		return inaccessibles;
