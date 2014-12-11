@@ -103,7 +103,5 @@ public class testIntegration {
 		
 		assertFalse(l.getListeObjetsEnch(idEnch).equals(liste));
 		assert(l.getListeObjetsEnch(idEnch).size() == 4);
-		
-		
 	}
 }

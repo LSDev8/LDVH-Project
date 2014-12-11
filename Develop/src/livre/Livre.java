@@ -316,6 +316,7 @@ public class Livre implements ILivre, Serializable {
 		Collection<Integer> inaccessibles = l.getListeSection();
 		//Indices des sections que l'on est en train de parcourir
 		Collection<Integer> visites = new ArrayList<>();
+		Collection<Integer> aux;
 		
 		//Si la liste des sections est vide, on rend un ensemble vide
 		if(sections.size() == 0)
@@ -327,10 +328,12 @@ public class Livre implements ILivre, Serializable {
 
 		//Tant qu'une sections reste à visiter
 		while(visites.size() > 0){
+			aux = new ArrayList<>();
+			aux.addAll(visites);
 			//pour le premier membre de la liste
 			for(Integer i : visites){
 				//on le supprime de la liste
-				visites.remove(i);
+				aux.remove(i);
 				//Et des sections non accessibles
 				inaccessibles.remove(i);
 				//Pour chacune de ces sections cibles
@@ -344,6 +347,7 @@ public class Livre implements ILivre, Serializable {
 					}	
 				}
 			}
+			visites = aux;
 		}
 		return inaccessibles;
 	}
