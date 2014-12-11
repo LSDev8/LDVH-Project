@@ -343,7 +343,7 @@ public class Livre implements ILivre, Serializable {
 					if(inaccessibles.contains(dest))
 					{
 						//On prévoit de les visiter
-						visites.add(dest);
+						aux.add(dest);
 					}	
 				}
 			}
