@@ -19,7 +19,6 @@ public interface IControleur {
 
     //Section
     public Collection<Integer> getListeSection() throws UninitializedLivreException;
-    public Collection<Integer> getListeObjetsSection() throws UninitializedLivreException;
     public Integer ajouterSection(String text) throws UninitializedLivreException; 
     public Integer ajouterSectionAvecEnsemble(String text, Collection<Integer> ens) throws UninitializedLivreException;
     public void modifierTextSection(Integer id, String text) throws UninitializedLivreException;
@@ -30,7 +29,7 @@ public interface IControleur {
     
     //Enchainement
     public Collection<Integer> getListeEnchainement() throws UninitializedLivreException;
-    public Collection<Integer> getListeObjetsEnchainement() throws UninitializedLivreException;
+    public Collection<Integer> getListeObjetsEnchainement(Integer idEnchainement) throws UninitializedLivreException;
     public Integer creerEnchainement(Integer idA, Integer idB, String text) throws UninitializedLivreException;
     public void modifierTextEnchainement(Integer id, String text) throws UninitializedLivreException;
     public void ajouterObjetEnchainement(Integer idEnchainement, Integer idObjet) throws UninitializedLivreException;

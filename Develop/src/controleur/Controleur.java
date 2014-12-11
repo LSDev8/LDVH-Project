@@ -69,15 +69,9 @@ public class Controleur implements IControleur {
 	}
 
 	@Override
-	public Collection<Integer> getListeObjetsEnchainement()
+	public Collection<Integer> getListeObjetsEnchainement(Integer idEnchainement)
 			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsEnchainement();
-	}
-
-	@Override
-	public Collection<Integer> getListeObjetsSection()
-			throws UninitializedLivreException {
-		return this.getLivre().getListeObjetsSection();
+		return this.getLivre().getListeObjetsEnch(idEnchainement);
 	}
 
 	@Override
